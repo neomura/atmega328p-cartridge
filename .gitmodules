@@ -1,0 +1,6 @@
+[submodule "submodules/neomura/cartridge"]
+	path = submodules/neomura/cartridge
+	url = https://github.com/neomura/cartridge
+[submodule "submodules/neomura/logo"]
+	path = submodules/neomura/logo
+	url = https://github.com/neomura/logo
