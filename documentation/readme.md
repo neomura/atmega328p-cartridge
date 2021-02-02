@@ -189,7 +189,7 @@ Only OC1 is capable of counting beyond an 8-bit number, so it is used to generat
 
 Each timer has two channels (OC*A/B), which have a comparison mode, a value to compare to, and both an interrupt and GPIO pin which they can control.
 
-OC1A is configured in "compare match" mode with a comparison value of 134, with the associated GPIO pin (PB1/digital pin 9) configured as an output.  This means that it is pulled to 0V until approximately 4.7µs into the scanline, at which point it is pulled to 5V until the timer resets at the end of the line.
+OC1A is configured in "compare match" mode with a comparison value of 134, with the associated GPIO pin (PB1/digital pin 9) configured as an output.  This means that it is pulled to 0V until approximately 4.7µs into the scanline, at which point it is pulled to 5V until the timer resets at the end of the line.  This forms the horizontal sync pulse.
 
 OC1B is configured with a comparison value of 100, which is slighly earlier than the end of the horizontal sync.  This is configured to trigger an interrupt in which the rest of the video signal is generated.
 
