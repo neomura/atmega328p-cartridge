@@ -214,7 +214,7 @@ The 15 cycles available are insufficient to evaluate the color of the pixel so t
 
 During the active video lines, the game's main loop is spent filling the buffer that the interrupt is not currently reading from, then busy-waiting until the buffers are swapped.
 
-Per pair of scanlines, approximately 392 cycles are available to populate the buffer.  Assuming 64 cycles to clear the buffer, this leaves 328 to draw sprites.  In a best-case scenario (3 cycles to read a byte from flash, 2 cycles to overwrite) this allows 262 pixels to be blitted from flash.  In reality, logic will be required to modify sprite data to account
+Per pair of scanlines, approximately 392 cycles are available to populate the buffer.  Assuming 64 cycles to clear the buffer, this leaves 328 to draw sprites.  In a best-case scenario (3 cycles to read a byte from flash, 2 cycles to overwrite) this allows 262 pixels to be blitted from flash.  In reality, logic will be required to modify sprite data to account for positioning, opacity, flipping, etc.
 
 The colorburst can be delayed a single clock cycle to switch between the two available palettes for that line, effectively adding a single-cycle phase shift to the following active video segment (which can only select phases with a precision of 2 cycles due to the SPI hardware's minimum divider of 2x).
 
