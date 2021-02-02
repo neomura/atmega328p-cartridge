@@ -38,7 +38,7 @@ Black-and-white composite video matches up with this process near exactly.  Once
 
 ![Example NTSC black-and-white composite video signal for a scanline.](black-and-white-signal.svg "Example NTSC black-and-white composite video signal for a scanline.")
 
-The signal is pulled low to indicate the start of a scanline (known as the horizontal sync).  After a short delay, the voltage directly controls the brightness of the electron guns as they scan from left to right; the range from 7.5 to 100 IRE is expected.  The active area is 640 pixels wide.
+The signal is pulled low to indicate the start of a line (known as the horizontal sync).  After a short delay, the voltage directly controls the brightness of the electron guns as they scan from left to right; the range from 7.5 to 100 IRE is expected.  The active area is 640 pixels wide.
 
 Voltages are measured in IREs, which are equivalent to 1/140th of a volt.
 
