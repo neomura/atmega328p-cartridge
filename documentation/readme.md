@@ -191,6 +191,8 @@ Each timer has two channels (OC*A/B), which have a comparison mode, a value to c
 
 OC1A is configured in "compare match" mode with a comparison value of 134, with the associated GPIO pin (PB1/digital pin 9) configured as an output.  This means that it is pulled to 0V until approximately 4.7µs into the scanline, at which point it is pulled to 5V until the timer resets at the end of the line.  This forms the horizontal sync pulse.
 
+When a vertical sync line is reached, the timer and channel can be adjusted; the top value reduced to 458 to pull the line low every 32µs, and the comparison value alternated between 134 and 430 to produce the long and short pulses expected.
+
 OC1B is configured with a comparison value of 100, which is slighly earlier than the end of the horizontal sync.  This is configured to trigger an interrupt in which the rest of the video signal is generated.
 
 AVR interrupts have a small amount of timing jitter, so a loop at the start of the interrupt handler busy-waits to compensate.
@@ -217,6 +219,8 @@ During the active video lines, the game's main loop is spent filling the buffer 
 Per pair of scanlines, approximately 392 cycles are available to populate the buffer.  Assuming 64 cycles to clear the buffer, this leaves 328 to draw sprites.  In a best-case scenario (3 cycles to read a byte from flash, 2 cycles to overwrite) this allows 262 pixels to be blitted from flash.  In reality, logic will be required to modify sprite data to account for positioning, opacity, flipping, etc.
 
 The colorburst can be delayed a single clock cycle to switch between the two available palettes for that line, effectively adding a single-cycle phase shift to the following active video segment (which can only select phases with a precision of 2 cycles due to the SPI hardware's minimum divider of 2x).
+
+On a vertical sync line, this interrupt early-exits as there is no colorburst or active video to generate.
 
 #### External components
 
