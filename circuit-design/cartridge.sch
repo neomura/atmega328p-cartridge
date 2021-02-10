@@ -1,0 +1,487 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text GLabel 3950 1850 2    50   BiDi ~ 0
+XTAL1
+Text GLabel 3950 1950 2    50   BiDi ~ 0
+XTAL2
+Text GLabel 3950 2350 2    50   Input ~ 0
+PAD_2_DATA
+Text GLabel 3950 2450 2    50   Input ~ 0
+PAD_3_DATA
+Text GLabel 3950 2750 2    50   Input ~ 0
+RESET
+Text GLabel 3950 1750 2    50   BiDi ~ 0
+SCK_PAD_CLOCK
+Text GLabel 3950 1650 2    50   Output ~ 0
+MISO_PAD_LATCH
+Text GLabel 3950 1550 2    50   BiDi ~ 0
+MOSI_AUDIO
+$Comp
+L Device:C C1
+U 1 1 6004FE64
+P 1100 1700
+F 0 "C1" H 986 1654 50  0000 R CNN
+F 1 "22pF" H 986 1745 50  0000 R CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1138 1550 50  0001 C CNN
+F 3 "~" H 1100 1700 50  0001 C CNN
+	1    1100 1700
+	1    0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 6005149B
+P 1250 1850
+F 0 "#PWR0101" H 1250 1600 50  0001 C CNN
+F 1 "GND" H 1255 1677 50  0000 C CNN
+F 2 "" H 1250 1850 50  0001 C CNN
+F 3 "" H 1250 1850 50  0001 C CNN
+	1    1250 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 60051A9F
+P 3350 3950
+F 0 "#PWR0102" H 3350 3700 50  0001 C CNN
+F 1 "GND" H 3355 3777 50  0000 C CNN
+F 2 "" H 3350 3950 50  0001 C CNN
+F 3 "" H 3350 3950 50  0001 C CNN
+	1    3350 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0103
+U 1 1 60052406
+P 3400 950
+F 0 "#PWR0103" H 3400 800 50  0001 C CNN
+F 1 "+5V" H 3415 1123 50  0000 C CNN
+F 2 "" H 3400 950 50  0001 C CNN
+F 3 "" H 3400 950 50  0001 C CNN
+	1    3400 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Microchip_ATmega:ATmega328P-PU U1
+U 1 1 60048829
+P 3350 2450
+F 0 "U1" H 2706 2496 50  0000 R CNN
+F 1 "ATmega328P-PU" H 2706 2405 50  0000 R CNN
+F 2 "Package_DIP:DIP-28_W7.62mm" H 3350 2450 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 3350 2450 50  0001 C CNN
+	1    3350 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 6004F666
+P 1400 1700
+F 0 "C2" H 1515 1746 50  0000 L CNN
+F 1 "22pF" H 1515 1655 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1438 1550 50  0001 C CNN
+F 3 "~" H 1400 1700 50  0001 C CNN
+	1    1400 1700
+	1    0    0    -1  
+$EndComp
+Text GLabel 1000 3000 0    50   BiDi ~ 0
+RESET
+$Comp
+L power:+5V #PWR0104
+U 1 1 60051BE6
+P 1400 2700
+F 0 "#PWR0104" H 1400 2550 50  0001 C CNN
+F 1 "+5V" H 1415 2873 50  0000 C CNN
+F 2 "" H 1400 2700 50  0001 C CNN
+F 3 "" H 1400 2700 50  0001 C CNN
+	1    1400 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D1
+U 1 1 600529CA
+P 1400 2850
+F 0 "D1" V 1354 2930 50  0000 L CNN
+F 1 "1N4148" V 1445 2930 50  0000 L CNN
+F 2 "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal" H 1400 2850 50  0001 C CNN
+F 3 "~" H 1400 2850 50  0001 C CNN
+	1    1400 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 60053226
+P 1100 2850
+F 0 "R2" H 1170 2896 50  0000 L CNN
+F 1 "4.7K" H 1170 2805 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1030 2850 50  0001 C CNN
+F 3 "~" H 1100 2850 50  0001 C CNN
+	1    1100 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 2700 1400 2700
+Connection ~ 1400 2700
+Wire Wire Line
+	1100 3000 1400 3000
+$Comp
+L power:GND #PWR0105
+U 1 1 60056A27
+P 1400 3300
+F 0 "#PWR0105" H 1400 3050 50  0001 C CNN
+F 1 "GND" H 1405 3127 50  0000 C CNN
+F 2 "" H 1400 3300 50  0001 C CNN
+F 3 "" H 1400 3300 50  0001 C CNN
+	1    1400 3300
+	1    0    0    -1  
+$EndComp
+Text GLabel 1000 1350 0    50   BiDi ~ 0
+XTAL2
+Text GLabel 1500 1350 2    50   BiDi ~ 0
+XTAL1
+$Comp
+L Device:C C3
+U 1 1 6005AE3B
+P 1400 3150
+F 0 "C3" H 1515 3196 50  0000 L CNN
+F 1 "100nF" H 1515 3105 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1438 3000 50  0001 C CNN
+F 3 "~" H 1400 3150 50  0001 C CNN
+	1    1400 3150
+	1    0    0    -1  
+$EndComp
+Connection ~ 1400 3000
+Wire Wire Line
+	1100 1550 1100 1350
+Wire Wire Line
+	1400 1350 1500 1350
+Connection ~ 1400 1350
+Wire Wire Line
+	1400 1350 1400 1550
+Wire Wire Line
+	1100 1350 1000 1350
+Connection ~ 1100 1350
+Wire Wire Line
+	1100 3000 1000 3000
+Connection ~ 1100 3000
+Wire Wire Line
+	1400 1850 1250 1850
+Wire Wire Line
+	1100 1850 1250 1850
+Connection ~ 1250 1850
+Text GLabel 2750 1250 0    50   UnSpc ~ 0
+AREF
+Text GLabel 950  4300 0    50   UnSpc ~ 0
+AREF
+$Comp
+L power:GND #PWR0106
+U 1 1 600641CB
+P 1050 4600
+F 0 "#PWR0106" H 1050 4350 50  0001 C CNN
+F 1 "GND" H 1055 4427 50  0000 C CNN
+F 2 "" H 1050 4600 50  0001 C CNN
+F 3 "" H 1050 4600 50  0001 C CNN
+	1    1050 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 600641D1
+P 1050 4450
+F 0 "C4" H 1165 4496 50  0000 L CNN
+F 1 "100nF" H 1165 4405 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1088 4300 50  0001 C CNN
+F 3 "~" H 1050 4450 50  0001 C CNN
+	1    1050 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	950  4300 1050 4300
+$Comp
+L power:GND #PWR0107
+U 1 1 600655AF
+P 1550 4600
+F 0 "#PWR0107" H 1550 4350 50  0001 C CNN
+F 1 "GND" H 1555 4427 50  0000 C CNN
+F 2 "" H 1550 4600 50  0001 C CNN
+F 3 "" H 1550 4600 50  0001 C CNN
+	1    1550 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C5
+U 1 1 600655B5
+P 1550 4450
+F 0 "C5" H 1665 4496 50  0000 L CNN
+F 1 "100nF" H 1665 4405 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1588 4300 50  0001 C CNN
+F 3 "~" H 1550 4450 50  0001 C CNN
+	1    1550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0108
+U 1 1 60065B65
+P 1550 4300
+F 0 "#PWR0108" H 1550 4150 50  0001 C CNN
+F 1 "+5V" H 1565 4473 50  0000 C CNN
+F 2 "" H 1550 4300 50  0001 C CNN
+F 3 "" H 1550 4300 50  0001 C CNN
+	1    1550 4300
+	1    0    0    -1  
+$EndComp
+Text Notes 600  700  0    50   ~ 0
+CRYSTAL OSCILLATOR
+Wire Notes Line
+	600  750  600  2150
+Wire Notes Line
+	600  2150 1900 2150
+Wire Notes Line
+	1900 2150 1900 750 
+Wire Notes Line
+	1900 750  600  750 
+Wire Notes Line
+	1850 2400 600  2400
+Text Notes 600  2350 0    50   ~ 0
+RESET
+Text Notes 650  3700 0    50   ~ 0
+(refer to AVR042 Figure 3-1)
+Wire Notes Line
+	1850 3750 600  3750
+Wire Notes Line
+	600  2400 600  3750
+Wire Notes Line
+	1850 2400 1850 3750
+Wire Notes Line
+	2000 4000 600  4000
+Wire Notes Line
+	600  4000 600  4900
+Wire Notes Line
+	600  4900 2000 4900
+Text Notes 600  3950 0    50   ~ 0
+POWER
+Text GLabel 3950 2250 2    50   Input ~ 0
+PAD_1_DATA
+Text GLabel 3950 2150 2    50   Input ~ 0
+PAD_0_DATA
+$Comp
+L power:+5V #PWR0109
+U 1 1 600859DF
+P 6100 950
+F 0 "#PWR0109" H 6100 800 50  0001 C CNN
+F 1 "+5V" H 6115 1123 50  0000 C CNN
+F 2 "" H 6100 950 50  0001 C CNN
+F 3 "" H 6100 950 50  0001 C CNN
+	1    6100 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0110
+U 1 1 60085F18
+P 6100 2400
+F 0 "#PWR0110" H 6100 2150 50  0001 C CNN
+F 1 "GND" H 6105 2227 50  0000 C CNN
+F 2 "" H 6100 2400 50  0001 C CNN
+F 3 "" H 6100 2400 50  0001 C CNN
+	1    6100 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 1350 1100 1150
+Wire Wire Line
+	1400 1150 1400 1350
+Text GLabel 6850 1750 2    50   Output ~ 0
+RESET
+Connection ~ 1400 1550
+Connection ~ 1100 1550
+$Comp
+L Device:Crystal X1
+U 1 1 6004A271
+P 1250 1150
+F 0 "X1" H 1250 1418 50  0000 C CNN
+F 1 "14.31818MHz" H 1250 1327 50  0000 C CNN
+F 2 "Crystal:Crystal_HC49-U_Horizontal" H 1250 1150 50  0001 C CNN
+F 3 "~" H 1250 1150 50  0001 C CNN
+	1    1250 1150
+	1    0    0    -1  
+$EndComp
+Text GLabel 5650 1750 0    50   Input ~ 0
+SCK_PAD_CLOCK
+Text GLabel 5650 1850 0    50   Input ~ 0
+MISO_PAD_LATCH
+Text GLabel 6850 1850 2    50   Input ~ 0
+MOSI_AUDIO
+Text GLabel 3950 3050 2    50   Output ~ 0
+VIDEO_CARRIER
+$Comp
+L Device:R R3
+U 1 1 600B86FE
+P 1450 5450
+F 0 "R3" H 1520 5496 50  0000 L CNN
+F 1 "470R" H 1520 5405 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1380 5450 50  0001 C CNN
+F 3 "~" H 1450 5450 50  0001 C CNN
+	1    1450 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 600B8CF8
+P 1450 5750
+F 0 "R4" H 1520 5796 50  0000 L CNN
+F 1 "1K" H 1520 5705 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1380 5750 50  0001 C CNN
+F 3 "~" H 1450 5750 50  0001 C CNN
+	1    1450 5750
+	1    0    0    -1  
+$EndComp
+Text GLabel 1350 5300 0    50   Input ~ 0
+VIDEO_CARRIER
+Text GLabel 1350 5900 0    50   Input ~ 0
+VIDEO_HSYNC
+Wire Wire Line
+	1350 5900 1450 5900
+Wire Wire Line
+	1350 5300 1450 5300
+Text GLabel 1550 5600 2    50   Output ~ 0
+VIDEO
+Wire Wire Line
+	1450 5600 1550 5600
+Connection ~ 1450 5600
+Text GLabel 3950 1350 2    50   Output ~ 0
+VIDEO_HSYNC
+Text GLabel 1450 6750 2    50   Output ~ 0
+AUDIO
+NoConn ~ 3950 1250
+NoConn ~ 3950 1450
+NoConn ~ 3950 3450
+NoConn ~ 3950 3650
+NoConn ~ 3950 3350
+NoConn ~ 3950 3250
+NoConn ~ 3950 3150
+NoConn ~ 3950 2650
+NoConn ~ 3950 2550
+$Comp
+L Device:R R5
+U 1 1 60058E96
+P 1350 6600
+F 0 "R5" H 1420 6646 50  0000 L CNN
+F 1 "100K" H 1420 6555 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1280 6600 50  0001 C CNN
+F 3 "~" H 1350 6600 50  0001 C CNN
+	1    1350 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 6750 1450 6750
+Wire Notes Line
+	2000 4000 2000 4900
+$Comp
+L Device:R R1
+U 1 1 6004E4BD
+P 1250 1550
+F 0 "R1" V 1457 1550 50  0000 C CNN
+F 1 "1M" V 1366 1550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1180 1550 50  0001 C CNN
+F 3 "~" H 1250 1550 50  0001 C CNN
+	1    1250 1550
+	0    -1   -1   0   
+$EndComp
+Text Notes 600  5100 0    50   ~ 0
+VIDEO
+Wire Notes Line
+	1950 5150 1950 6050
+Wire Notes Line
+	600  6050 600  5150
+Wire Notes Line
+	600  5150 1950 5150
+Wire Notes Line
+	1950 6050 600  6050
+Text Notes 600  6250 0    50   ~ 0
+AUDIO
+Text GLabel 1250 6450 0    50   Input ~ 0
+MOSI_AUDIO
+Wire Wire Line
+	1350 6450 1250 6450
+Wire Notes Line
+	600  6300 600  6900
+Wire Notes Line
+	1850 6300 1850 6900
+Wire Notes Line
+	600  6900 1850 6900
+Wire Notes Line
+	600  6300 1850 6300
+NoConn ~ 3950 3550
+NoConn ~ 3950 2950
+Wire Wire Line
+	3350 950  3400 950 
+Wire Wire Line
+	3450 950  3400 950 
+Connection ~ 3400 950 
+Text GLabel 5650 1650 0    50   Output ~ 0
+PAD_0_DATA
+Text GLabel 5650 1550 0    50   Output ~ 0
+PAD_1_DATA
+Text GLabel 5650 1350 0    50   Output ~ 0
+PAD_3_DATA
+Text GLabel 5650 1450 0    50   Output ~ 0
+PAD_2_DATA
+Text GLabel 6850 1450 2    50   Input ~ 0
+AUDIO
+Text GLabel 6850 1350 2    50   Input ~ 0
+VIDEO
+$Comp
+L Neomura_Cartridge:Connector J1
+U 1 1 60234E43
+P 5750 950
+F 0 "J1" H 6861 -256 50  0000 L CNN
+F 1 "Connector" H 6861 -178 50  0000 L CNN
+F 2 "Neomura_Cartridge:Cartridge" H 6850 -200 50  0001 C CNN
+F 3 "" H 6850 -200 50  0001 C CNN
+	1    5750 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 60247CA5
+P 6400 950
+F 0 "#FLG0101" H 6400 1025 50  0001 C CNN
+F 1 "PWR_FLAG" H 6400 1123 50  0000 C CNN
+F 2 "" H 6400 950 50  0001 C CNN
+F 3 "~" H 6400 950 50  0001 C CNN
+	1    6400 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 950  6250 950 
+Connection ~ 6250 950 
+Wire Wire Line
+	6400 950  6250 950 
+Wire Wire Line
+	6100 2400 6250 2400
+Wire Wire Line
+	6400 2400 6250 2400
+Connection ~ 6250 2400
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 6024B781
+P 6400 2400
+F 0 "#FLG0102" H 6400 2475 50  0001 C CNN
+F 1 "PWR_FLAG" H 6400 2573 50  0000 C CNN
+F 2 "" H 6400 2400 50  0001 C CNN
+F 3 "~" H 6400 2400 50  0001 C CNN
+	1    6400 2400
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC

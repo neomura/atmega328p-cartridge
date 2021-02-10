@@ -12,6 +12,10 @@
   "files.eol": "\n",
   "files.exclude": {
     ".DS_Store": true,
-    "**/.git": true
+    "**/.git": true,
+    "**/fp-*-*": true,
+    "**/*.*-bak": true,
+    "**/*-cache.lib": true,
+    "**/sym-lib-table": true
   }
 }

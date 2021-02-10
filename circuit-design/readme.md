@@ -1,5 +1,11 @@
 # [neomura/atmega328p-cartridge](../readme.md)/Circuit Design
 
+| Link                                         | Description       |
+| -------------------------------------------- | ----------------- |
+| [cartridge.pro](./cartridge.pro)             | KiCAD project.    |
+| [cartridge.sch](./cartridge.sch)             | KiCAD schematic.  |
+| [cartridge.kicad_pcb](./cartridge.kicad_pcb) | KiCAD PCB layout. |
+
 ## Bill of materials
 
 TODO
