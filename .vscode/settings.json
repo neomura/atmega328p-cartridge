@@ -15,7 +15,6 @@
     "**/.git": true,
     "**/fp-*-*": true,
     "**/*.*-bak": true,
-    "**/*-cache.lib": true,
-    "**/sym-lib-table": true
+    "**/*-cache.lib": true
   }
 }

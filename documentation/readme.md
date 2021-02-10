@@ -191,6 +191,7 @@ Each timer has two channels (OC*A/B), which have a comparison mode, a value to c
 
 OC1A is configured in "compare match" mode with a comparison value of 134, with the associated GPIO pin (PB1/digital pin 9) configured as an output.  This means that it is pulled to 0V until approximately 4.7µs into the scanline, at which point it is pulled to 5V until the timer resets at the end of the line.  This forms the horizontal sync pulse.
 
+TODO this isn't really true now is it
 When a vertical sync line is reached, the timer and channel can be adjusted; the top value reduced to 458 to pull the line low every 32µs, and the comparison value alternated between 134 and 430 to produce the long and short pulses expected.
 
 OC1B is configured with a comparison value of 100, which is slighly earlier than the end of the horizontal sync.  This is configured to trigger an interrupt in which the rest of the video signal is generated.
