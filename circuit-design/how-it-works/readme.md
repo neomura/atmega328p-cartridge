@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../readme.md)/Documentation
+# [neomura/atmega328p-cartridge](../readme.md)/How it works
 
 This project is derived from the [Arduinocade project](https://github.com/rossumur/Arduinocade), but makes significant changes.
 
