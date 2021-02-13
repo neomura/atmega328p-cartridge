@@ -8,15 +8,55 @@
 
 ## Bill of materials
 
-TODO
+Links are included for reference only and are not endorsements.
+
+| Reference   | Description                                                          | Model No.         | Link                                                                                                                                                                                                                                                                                                                                                           |
+| ----------- | -------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| J1          | Cartridge connector (two right-angled 1x6 2.54mm male pin headers)   | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=225_230&products_id=3128](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=225_230&products_id=3128)                                                                                                                                                                         |
+| U1          | Microcontroller                                                      | ATMega328P-PU     | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_161_162&products_id=1225](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_161_162&products_id=1225)                                                                                                                                                                 |
+| X1          | 14.31818MHz HC49 crystal                                             | CMACKD 0335       | [https://www.ebay.co.uk/itm/Crystal-14-31818MHZ-HC49-made-by-C-MAC-pack-of-10-Uk-stock-Z3798/293447907451?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2060353.m2749.l2649](https://www.ebay.co.uk/itm/Crystal-14-31818MHZ-HC49-made-by-C-MAC-pack-of-10-Uk-stock-Z3798/293447907451?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2060353.m2749.l2649)                     |
+| R1          | 1M load resistor                                                     | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=480](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=480)                                                                                                                                                                         |
+| C1/C2       | 22pF load capacitor                                                  | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=187](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=187)                                                                                                                                                                         |
+| D1          | Reset protection diode                                               | 1N4148            | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_141_143&products_id=925](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_141_143&products_id=925)                                                                                                                                                                   |
+| R2          | 4.7k reset pull-up resistor                                          | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=452](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=452)                                                                                                                                                                         |
+| C3          | 100nF reset bypass capacitor                                         | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210)                                                                                                                                                                         |
+| C4          | 100nF analog reference capacitor                                     | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210)                                                                                                                                                                         |
+| C5          | 100nF +5V bypass capacitor                                           | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=65_75_67&products_id=210)                                                                                                                                                                         |
+| R3          | 470R video carrier resistor                                          | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=441](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=441)                                                                                                                                                                         |
+| R4          | 1K video sync resistor                                               | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=445](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=445)                                                                                                                                                                         |
+| R5          | 100K audio resistor                                                  | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=468](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=468)                                                                                                                                                                         |
+
+### Possible substitutions
+
+#### J1
+
+Right-angled male pin headers appear to come in two distinct styles; one where the plastic retainer is in contact with the PCB, and one where it is instead in contact with the corresponding female socket.  This PCB is designed for the former, and the latter will not fit inside a cartridge shell.
+
+#### U1
+
+Other pin-compatible ATMega ICs may work.  Note that most will have smaller flash space and may not be able to store complex games.
+
+#### X1/R1/C1/C2
+
+Most 14.31818MHz crystals which are HC49 or smaller will work as long as appropriate bypass capacitors and resistor are included.  To be compatible with Arduinocade games instead of Neomura games, a 28.6363MHz crystal such as [https://www.aliexpress.com/item/32910067235.html?spm=a2g0s.9042311.0.0.5bfd4c4d3a2EOO](https://www.aliexpress.com/item/32910067235.html?spm=a2g0s.9042311.0.0.5bfd4c4d3a2EOO) may be used instead.
+
+It may be possible to omit the load resistor.
+
+#### D1
+
+This diode is included to prevent accidental high-voltage programming.  It can be omitted.
+
+#### C4
+
+This capacitor is recommended for improving the noise levels of the ATMega328P-PU's analog-to-digital converter, but there are currently no plans to use it.  This component can be omitted.
 
 ## Assembly instructions
 
-TODO
-
-### Potential pitfalls
-
-The ATMega328P-PU's labelling will be upside down relative to the board when oriented correctly.
+- Start by soldering J1.  I would recommend using some kind of clamp such as a crocodile clip to keep it firmly attached to the board (note that it will act as a heatsink, making soldering more difficult, if in contact with pins).  Use short bursts of high heat and allow time to cool between joints to avoid melting the plastic retainer.  After soldering, use a female socket to ensure that pins are straight, and use said female socket to correct the pins if not parallel with the PCB.
+- Solder U1.  Note that the label will be upside down when oriented correctly.
+- Solder X1, R1, C1, C2, D1, R2, C3, C4, C5, R3, R4 and R5.
+- Place the PCB, logo up, into the back half of the shell.
+- Place the front half of the shell on top and press fit.
 
 ### Program
 
