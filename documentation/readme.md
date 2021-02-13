@@ -139,6 +139,10 @@ When put together with the active video lines and the blank lines between, one f
 
 This totals 525 lines.
 
+###### Progressive scan
+
+In reality, most retrocomputers and games consoles simplify this by sending six long pulses; most TVs do not need the equalizing pulses, and this means that the same scanlines are updated every field, effectively producing 240p60.
+
 ##### Safe areas
 
 Most TVs do not show the full active area, trimming columns and rows from the edges.  An area in which this is understood to not occur is known as a safe area, though there are no standards regarding this.
@@ -191,8 +195,7 @@ Each timer has two channels (OC*A/B), which have a comparison mode, a value to c
 
 OC1A is configured in "compare match" mode with a comparison value of 134, with the associated GPIO pin (PB1/digital pin 9) configured as an output.  This means that it is pulled to 0V until approximately 4.7µs into the scanline, at which point it is pulled to 5V until the timer resets at the end of the line.  This forms the horizontal sync pulse.
 
-TODO this isn't really true now is it
-When a vertical sync line is reached, the timer and channel can be adjusted; the top value reduced to 458 to pull the line low every 32µs, and the comparison value alternated between 134 and 430 to produce the long and short pulses expected.
+When a vertical sync line is reached, the channel can be adjusted; the comparison value changed to 840 to produce sufficient long pulses.
 
 OC1B is configured with a comparison value of 100, which is slighly earlier than the end of the horizontal sync.  This is configured to trigger an interrupt in which the rest of the video signal is generated.
 
@@ -245,14 +248,15 @@ This produces values offset by approximately 40 IRE.  This will, however, still 
 
 ## References
 
-| Link                                                                                                                                                                                                               | Description                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| [https://github.com/rossumur/Arduinocade](https://github.com/rossumur/Arduinocade)                                                                                                                                 | Arduinocade project from which this was derived. |
-| [https://cnyack.homestead.com/files/modulation/ntsc_sig.htm](https://cnyack.homestead.com/files/modulation/ntsc_sig.htm)                                                                                           | Color phase details.                             |
-| [https://videocide.com/glossary/vertical-sync/](https://videocide.com/glossary/vertical-sync/)                                                                                                                     | Timing details on the vertical sync lines.       |
-| [https://en.wikipedia.org/wiki/IRE_(unit)](https://en.wikipedia.org/wiki/IRE_(unit))                                                                                                                              | Details on IRE units.                            |
-| [https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title](https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title)                                                                                     | Another approach to AVR video generation.        |
-| [http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm](http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm)                                                                                                     | Similar approach with PIC.                       |
-| [https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/](https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/) | Details on safe areas.                           |
+| Link                                                                                                                                                                                                                                                                                                                   | Description                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| [https://github.com/rossumur/Arduinocade](https://github.com/rossumur/Arduinocade)                                                                                                                                                                                                                                     | Arduinocade project from which this was derived. |
+| [https://cnyack.homestead.com/files/modulation/ntsc_sig.htm](https://cnyack.homestead.com/files/modulation/ntsc_sig.htm)                                                                                                                                                                                               | Color phase details.                             |
+| [https://videocide.com/glossary/vertical-sync/](https://videocide.com/glossary/vertical-sync/)                                                                                                                                                                                                                         | Timing details on the vertical sync lines.       |
+| [https://en.wikipedia.org/wiki/IRE_(unit)](https://en.wikipedia.org/wiki/IRE_(unit))                                                                                                                                                                                                                                   | Details on IRE units.                            |
+| [https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title](https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title)                                                                                                                                                                                         | Another approach to AVR video generation.        |
+| [http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm](http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm)                                                                                                                                                                                                         | Similar approach with PIC.                       |
+| [https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/](https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/)                                                                                                     | Details on safe areas.                           |
+| [http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm](http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm) | Details on "240p progressive scan" NTSC.         |
 
 A project was found while researching which used a PIC's serial output to generate color NTSC video through artifacting, through which the Arduinocade project was found.  This appears to have been lost.
