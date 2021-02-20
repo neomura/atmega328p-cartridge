@@ -17,18 +17,14 @@ Text GLabel 3950 1850 2    50   BiDi ~ 0
 XTAL1
 Text GLabel 3950 1950 2    50   BiDi ~ 0
 XTAL2
-Text GLabel 3950 2350 2    50   Input ~ 0
-PAD_2_DATA
-Text GLabel 3950 2450 2    50   Input ~ 0
-PAD_3_DATA
 Text GLabel 3950 2750 2    50   Input ~ 0
 RESET
-Text GLabel 3950 1750 2    50   BiDi ~ 0
-SCK_PAD_CLOCK
+Text GLabel 3950 1750 2    50   Input ~ 0
+SCK
 Text GLabel 3950 1650 2    50   Output ~ 0
-MISO_PAD_LATCH
-Text GLabel 3950 1550 2    50   BiDi ~ 0
-MOSI_AUDIO
+MISO
+Text GLabel 3950 1550 2    50   Input ~ 0
+MOSI
 $Comp
 L Device:C C1
 U 1 1 6004FE64
@@ -180,65 +176,37 @@ Wire Wire Line
 Wire Wire Line
 	1100 1850 1250 1850
 Connection ~ 1250 1850
-Text GLabel 2750 1250 0    50   UnSpc ~ 0
-AREF
-Text GLabel 950  4300 0    50   UnSpc ~ 0
-AREF
 $Comp
-L power:GND #PWR0106
-U 1 1 600641CB
-P 1050 4600
-F 0 "#PWR0106" H 1050 4350 50  0001 C CNN
-F 1 "GND" H 1055 4427 50  0000 C CNN
-F 2 "" H 1050 4600 50  0001 C CNN
-F 3 "" H 1050 4600 50  0001 C CNN
-	1    1050 4600
+L power:GND #PWR0107
+U 1 1 600655AF
+P 800 4600
+F 0 "#PWR0107" H 800 4350 50  0001 C CNN
+F 1 "GND" H 805 4427 50  0000 C CNN
+F 2 "" H 800 4600 50  0001 C CNN
+F 3 "" H 800 4600 50  0001 C CNN
+	1    800  4600
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C4
-U 1 1 600641D1
-P 1050 4450
-F 0 "C4" H 1165 4496 50  0000 L CNN
-F 1 "100nF" H 1165 4405 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1088 4300 50  0001 C CNN
-F 3 "~" H 1050 4450 50  0001 C CNN
-	1    1050 4450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	950  4300 1050 4300
-$Comp
-L power:GND #PWR0107
-U 1 1 600655AF
-P 1550 4600
-F 0 "#PWR0107" H 1550 4350 50  0001 C CNN
-F 1 "GND" H 1555 4427 50  0000 C CNN
-F 2 "" H 1550 4600 50  0001 C CNN
-F 3 "" H 1550 4600 50  0001 C CNN
-	1    1550 4600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C5
 U 1 1 600655B5
-P 1550 4450
-F 0 "C5" H 1665 4496 50  0000 L CNN
-F 1 "100nF" H 1665 4405 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1588 4300 50  0001 C CNN
-F 3 "~" H 1550 4450 50  0001 C CNN
-	1    1550 4450
+P 800 4450
+F 0 "C4" H 915 4496 50  0000 L CNN
+F 1 "100nF" H 915 4405 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 838 4300 50  0001 C CNN
+F 3 "~" H 800 4450 50  0001 C CNN
+	1    800  4450
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0108
 U 1 1 60065B65
-P 1550 4300
-F 0 "#PWR0108" H 1550 4150 50  0001 C CNN
-F 1 "+5V" H 1565 4473 50  0000 C CNN
-F 2 "" H 1550 4300 50  0001 C CNN
-F 3 "" H 1550 4300 50  0001 C CNN
-	1    1550 4300
+P 800 4300
+F 0 "#PWR0108" H 800 4150 50  0001 C CNN
+F 1 "+5V" H 815 4473 50  0000 C CNN
+F 2 "" H 800 4300 50  0001 C CNN
+F 3 "" H 800 4300 50  0001 C CNN
+	1    800  4300
 	1    0    0    -1  
 $EndComp
 Text Notes 600  700  0    50   ~ 0
@@ -264,17 +232,9 @@ Wire Notes Line
 Wire Notes Line
 	1850 2400 1850 3750
 Wire Notes Line
-	2000 4000 600  4000
-Wire Notes Line
 	600  4000 600  4900
-Wire Notes Line
-	600  4900 2000 4900
 Text Notes 600  3950 0    50   ~ 0
 POWER
-Text GLabel 3950 2250 2    50   Input ~ 0
-PAD_1_DATA
-Text GLabel 3950 2150 2    50   Input ~ 0
-PAD_0_DATA
 $Comp
 L power:+5V #PWR0109
 U 1 1 600859DF
@@ -289,19 +249,19 @@ $EndComp
 $Comp
 L power:GND #PWR0110
 U 1 1 60085F18
-P 6100 2400
-F 0 "#PWR0110" H 6100 2150 50  0001 C CNN
-F 1 "GND" H 6105 2227 50  0000 C CNN
-F 2 "" H 6100 2400 50  0001 C CNN
-F 3 "" H 6100 2400 50  0001 C CNN
-	1    6100 2400
+P 6100 2700
+F 0 "#PWR0110" H 6100 2450 50  0001 C CNN
+F 1 "GND" H 6105 2527 50  0000 C CNN
+F 2 "" H 6100 2700 50  0001 C CNN
+F 3 "" H 6100 2700 50  0001 C CNN
+	1    6100 2700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	1100 1350 1100 1150
 Wire Wire Line
 	1400 1150 1400 1350
-Text GLabel 6850 1750 2    50   Output ~ 0
+Text GLabel 5650 2050 0    50   Output ~ 0
 RESET
 Connection ~ 1400 1550
 Connection ~ 1100 1550
@@ -311,17 +271,17 @@ U 1 1 6004A271
 P 1250 1150
 F 0 "X1" H 1250 1418 50  0000 C CNN
 F 1 "14.31818MHz" H 1250 1327 50  0000 C CNN
-F 2 "Crystal:Crystal_HC49-U_Horizontal" H 1250 1150 50  0001 C CNN
+F 2 "Crystal:Crystal_HC49-4H_Vertical" H 1250 1150 50  0001 C CNN
 F 3 "~" H 1250 1150 50  0001 C CNN
 	1    1250 1150
 	1    0    0    -1  
 $EndComp
 Text GLabel 5650 1750 0    50   Input ~ 0
-SCK_PAD_CLOCK
+PAD_CLOCK
 Text GLabel 5650 1850 0    50   Input ~ 0
-MISO_PAD_LATCH
-Text GLabel 6850 1850 2    50   Input ~ 0
-MOSI_AUDIO
+PAD_LATCH
+Text GLabel 6850 1550 2    50   Input ~ 0
+AUDIO_R
 Text GLabel 3950 3050 2    50   Output ~ 0
 VIDEO_CARRIER
 $Comp
@@ -361,32 +321,16 @@ Wire Wire Line
 Connection ~ 1450 5600
 Text GLabel 3950 1350 2    50   Output ~ 0
 VIDEO_HSYNC
-Text GLabel 1450 6750 2    50   Output ~ 0
-AUDIO
+Text GLabel 1700 6450 2    50   Output ~ 0
+AUDIO_L
 NoConn ~ 3950 1250
 NoConn ~ 3950 1450
-NoConn ~ 3950 3450
 NoConn ~ 3950 3650
 NoConn ~ 3950 3350
 NoConn ~ 3950 3250
 NoConn ~ 3950 3150
-NoConn ~ 3950 2650
-NoConn ~ 3950 2550
-$Comp
-L Device:R R5
-U 1 1 60058E96
-P 1350 6600
-F 0 "R5" H 1420 6646 50  0000 L CNN
-F 1 "100K" H 1420 6555 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1280 6600 50  0001 C CNN
-F 3 "~" H 1350 6600 50  0001 C CNN
-	1    1350 6600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1350 6750 1450 6750
 Wire Notes Line
-	2000 4000 2000 4900
+	1250 4000 1250 4900
 $Comp
 L Device:R R1
 U 1 1 6004E4BD
@@ -410,19 +354,8 @@ Wire Notes Line
 	1950 6050 600  6050
 Text Notes 600  6250 0    50   ~ 0
 AUDIO
-Text GLabel 1250 6450 0    50   Input ~ 0
-MOSI_AUDIO
-Wire Wire Line
-	1350 6450 1250 6450
-Wire Notes Line
-	600  6300 600  6900
-Wire Notes Line
-	1850 6300 1850 6900
-Wire Notes Line
-	600  6900 1850 6900
-Wire Notes Line
-	600  6300 1850 6300
-NoConn ~ 3950 3550
+Text GLabel 1300 6450 0    50   Input ~ 0
+AUDIO_PWM_L
 NoConn ~ 3950 2950
 Wire Wire Line
 	3350 950  3400 950 
@@ -438,7 +371,7 @@ PAD_3_DATA
 Text GLabel 5650 1450 0    50   Output ~ 0
 PAD_2_DATA
 Text GLabel 6850 1450 2    50   Input ~ 0
-AUDIO
+AUDIO_L
 Text GLabel 6850 1350 2    50   Input ~ 0
 VIDEO
 $Comp
@@ -463,25 +396,254 @@ F 3 "~" H 6400 950 50  0001 C CNN
 	1    6400 950 
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 6024B781
+P 6400 2700
+F 0 "#FLG0102" H 6400 2775 50  0001 C CNN
+F 1 "PWR_FLAG" H 6400 2873 50  0000 C CNN
+F 2 "" H 6400 2700 50  0001 C CNN
+F 3 "~" H 6400 2700 50  0001 C CNN
+	1    6400 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6100 2700 6250 2700
 Wire Wire Line
 	6100 950  6250 950 
 Connection ~ 6250 950 
 Wire Wire Line
-	6400 950  6250 950 
+	6250 950  6400 950 
+Connection ~ 6250 2700
 Wire Wire Line
-	6100 2400 6250 2400
+	6250 2700 6400 2700
 Wire Wire Line
-	6400 2400 6250 2400
-Connection ~ 6250 2400
+	6100 2700 5650 2700
+Wire Wire Line
+	5650 2700 5650 2150
+Connection ~ 6100 2700
 $Comp
-L power:PWR_FLAG #FLG0102
-U 1 1 6024B781
-P 6400 2400
-F 0 "#FLG0102" H 6400 2475 50  0001 C CNN
-F 1 "PWR_FLAG" H 6400 2573 50  0000 C CNN
-F 2 "" H 6400 2400 50  0001 C CNN
-F 3 "~" H 6400 2400 50  0001 C CNN
-	1    6400 2400
+L power:GND #PWR0106
+U 1 1 602E7333
+P 1350 7050
+F 0 "#PWR0106" H 1350 6800 50  0001 C CNN
+F 1 "GND" H 1355 6877 50  0000 C CNN
+F 2 "" H 1350 7050 50  0001 C CNN
+F 3 "" H 1350 7050 50  0001 C CNN
+	1    1350 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C5
+U 1 1 602E7339
+P 1350 6900
+F 0 "C5" H 1465 6946 50  0000 L CNN
+F 1 "33n" H 1465 6855 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 1388 6750 50  0001 C CNN
+F 3 "~" H 1350 6900 50  0001 C CNN
+	1    1350 6900
 	-1   0    0    1   
 $EndComp
+$Comp
+L Device:C C6
+U 1 1 602E8B9B
+P 1650 6600
+F 0 "C6" H 1765 6646 50  0000 L CNN
+F 1 "10uF" H 1765 6555 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D10.5mm_W5.0mm_P5.00mm" H 1688 6450 50  0001 C CNN
+F 3 "~" H 1650 6600 50  0001 C CNN
+	1    1650 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 60058E96
+P 1350 6600
+F 0 "R5" H 1420 6646 50  0000 L CNN
+F 1 "270R" H 1420 6555 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1280 6600 50  0001 C CNN
+F 3 "~" H 1350 6600 50  0001 C CNN
+	1    1350 6600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 602EB2F8
+P 1650 6900
+F 0 "R6" H 1720 6946 50  0000 L CNN
+F 1 "150R" H 1720 6855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1580 6900 50  0001 C CNN
+F 3 "~" H 1650 6900 50  0001 C CNN
+	1    1650 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 602EC75A
+P 1650 7050
+F 0 "#PWR0111" H 1650 6800 50  0001 C CNN
+F 1 "GND" H 1655 6877 50  0000 C CNN
+F 2 "" H 1650 7050 50  0001 C CNN
+F 3 "" H 1650 7050 50  0001 C CNN
+	1    1650 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 6450 1300 6450
+Wire Wire Line
+	1350 6750 1650 6750
+Connection ~ 1350 6750
+Connection ~ 1650 6750
+Wire Wire Line
+	1650 6450 1700 6450
+Wire Notes Line
+	3650 6300 3650 7350
+Wire Notes Line
+	600  6300 600  7350
+NoConn ~ 6850 1750
+NoConn ~ 6850 1850
+Text GLabel 3150 6450 2    50   Output ~ 0
+AUDIO_R
+Text GLabel 2750 6450 0    50   Input ~ 0
+AUDIO_PWM_R
+$Comp
+L power:GND #PWR0112
+U 1 1 602FCDC5
+P 2800 7050
+F 0 "#PWR0112" H 2800 6800 50  0001 C CNN
+F 1 "GND" H 2805 6877 50  0000 C CNN
+F 2 "" H 2800 7050 50  0001 C CNN
+F 3 "" H 2800 7050 50  0001 C CNN
+	1    2800 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C7
+U 1 1 602FCDCB
+P 2800 6900
+F 0 "C7" H 2915 6946 50  0000 L CNN
+F 1 "33n" H 2915 6855 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 2838 6750 50  0001 C CNN
+F 3 "~" H 2800 6900 50  0001 C CNN
+	1    2800 6900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C C8
+U 1 1 602FCDD1
+P 3100 6600
+F 0 "C8" H 3215 6646 50  0000 L CNN
+F 1 "10uF" H 3215 6555 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D10.5mm_W5.0mm_P5.00mm" H 3138 6450 50  0001 C CNN
+F 3 "~" H 3100 6600 50  0001 C CNN
+	1    3100 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 602FCDD7
+P 2800 6600
+F 0 "R7" H 2870 6646 50  0000 L CNN
+F 1 "270R" H 2870 6555 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 2730 6600 50  0001 C CNN
+F 3 "~" H 2800 6600 50  0001 C CNN
+	1    2800 6600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 602FCDDD
+P 3100 6900
+F 0 "R8" H 3170 6946 50  0000 L CNN
+F 1 "150R" H 3170 6855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 3030 6900 50  0001 C CNN
+F 3 "~" H 3100 6900 50  0001 C CNN
+	1    3100 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0113
+U 1 1 602FCDE3
+P 3100 7050
+F 0 "#PWR0113" H 3100 6800 50  0001 C CNN
+F 1 "GND" H 3105 6877 50  0000 C CNN
+F 2 "" H 3100 7050 50  0001 C CNN
+F 3 "" H 3100 7050 50  0001 C CNN
+	1    3100 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 6450 2750 6450
+Wire Wire Line
+	2800 6750 3100 6750
+Connection ~ 2800 6750
+Connection ~ 3100 6750
+Wire Wire Line
+	3100 6450 3150 6450
+Wire Notes Line
+	600  7350 3650 7350
+Wire Notes Line
+	600  6300 3650 6300
+Wire Notes Line
+	1250 4000 600  4000
+Wire Notes Line
+	600  4900 1250 4900
+Text GLabel 3950 2450 2    50   Input ~ 0
+PAD_0_DATA
+Text GLabel 3950 2350 2    50   Input ~ 0
+PAD_1_DATA
+Text GLabel 3950 2150 2    50   Input ~ 0
+PAD_3_DATA
+Text GLabel 3950 2250 2    50   Input ~ 0
+PAD_2_DATA
+Text GLabel 3950 2550 2    50   Output ~ 0
+PAD_CLOCK
+Text GLabel 3950 2650 2    50   Output ~ 0
+PAD_LATCH
+Text GLabel 3950 3550 2    50   Output ~ 0
+AUDIO_PWM_R
+Text GLabel 3950 3450 2    50   Output ~ 0
+AUDIO_PWM_L
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J2
+U 1 1 6030844C
+P 6300 3800
+F 0 "J2" H 6350 4117 50  0000 C CNN
+F 1 "ICSP" H 6350 4026 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal" H 6300 3800 50  0001 C CNN
+F 3 "~" H 6300 3800 50  0001 C CNN
+	1    6300 3800
+	1    0    0    -1  
+$EndComp
+Text GLabel 6600 3800 2    50   Output ~ 0
+MOSI
+Text GLabel 6100 3700 0    50   Input ~ 0
+MISO
+$Comp
+L power:GND #PWR0114
+U 1 1 6030D1C7
+P 6600 3900
+F 0 "#PWR0114" H 6600 3650 50  0001 C CNN
+F 1 "GND" H 6605 3727 50  0000 C CNN
+F 2 "" H 6600 3900 50  0001 C CNN
+F 3 "" H 6600 3900 50  0001 C CNN
+	1    6600 3900
+	1    0    0    -1  
+$EndComp
+Text GLabel 6100 3800 0    50   Input ~ 0
+SCK
+Text GLabel 6100 3900 0    50   Output ~ 0
+RESET
+$Comp
+L power:+5V #PWR0115
+U 1 1 6030EE81
+P 6600 3700
+F 0 "#PWR0115" H 6600 3550 50  0001 C CNN
+F 1 "+5V" H 6615 3873 50  0000 C CNN
+F 2 "" H 6600 3700 50  0001 C CNN
+F 3 "" H 6600 3700 50  0001 C CNN
+	1    6600 3700
+	1    0    0    -1  
+$EndComp
+NoConn ~ 2750 1250
 $EndSCHEMATC
