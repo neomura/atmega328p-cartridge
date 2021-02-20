@@ -246,6 +246,12 @@ When the 75R input impedence of the receiving system is taken into account, this
 
 This produces values offset by approximately 40 IRE.  This will, however, still work.
 
+## Audio
+
+Like Arduinocade, PWM is filtered to produce analog voltages which are accepted as audio signals by the TV.  However, the single-resistor design has been replaced with the [Raspberry Pi bandpass RC filter](https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/) to resolve the low volume and inconsistent performance found in testing.
+
+Additionally, two PWM outputs are available for stereo sound.
+
 ## References
 
 | Link                                                                                                                                                                                                                                                                                                                   | Description                                      |
@@ -258,5 +264,6 @@ This produces values offset by approximately 40 IRE.  This will, however, still 
 | [http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm](http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm)                                                                                                                                                                                                         | Similar approach with PIC.                       |
 | [https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/](https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/)                                                                                                     | Details on safe areas.                           |
 | [http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm](http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm) | Details on "240p progressive scan" NTSC.         |
+| [https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/](https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/)                                                                                                                                             | Raspberry Pi audio RC filter.                    |
 
 A project was found while researching which used a PIC's serial output to generate color NTSC video through artifacting, through which the Arduinocade project was found.  This appears to have been lost.
