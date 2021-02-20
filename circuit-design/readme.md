@@ -91,7 +91,7 @@ In either case, **do not use both J1 and J2 to power the cartridge**.  This may 
 By default, an ATMega328P will use its internal 8MHz clock rather than an external crystal.  To configure this, use [AVRDUDE](https://www.nongnu.org/avrdude/) to set the correct fuse bits:
 
 ```shell
-avrdude -pM328P -Ulfuse:w:0xff:m -Uhfuse:w:0xde:m -Uefuse:w:0x05:m
+avrdude -pM328P -Ulfuse:w:0xff:m -Uhfuse:w:0xde:m -Uefuse:w:0xfd:m
 ```
 
 Note that you will need to add command line arguments to this to specify which programmer you are using, for example:
@@ -121,4 +121,5 @@ After following these steps, you should be able to connect the video pin (cartri
 | [https://www.instructables.com/Adding-ICSP-header-to-your-ArduinoAVR-board/](https://www.instructables.com/Adding-ICSP-header-to-your-ArduinoAVR-board/) | Source for ICSP header layout.         |
 | [https://www.arduino.cc/en/Tutorial/BuiltInExamples/ArduinoISP](https://www.arduino.cc/en/Tutorial/BuiltInExamples/ArduinoISP)                           | Details on using an Arduino as an ISP. |
 | [https://forum.arduino.cc/index.php?topic=71580.0](https://forum.arduino.cc/index.php?topic=71580.0)                                                     | Source for default Arduino fuses.      |
+| [https://www.avrfreaks.net/forum/unable-reset-fuses-atmega328p](https://www.avrfreaks.net/forum/unable-reset-fuses-atmega328p)                           | Workaround for AVRDUDE problem.        |
 | [https://www.ladyada.net/learn/avr/avrdude.html](https://www.ladyada.net/learn/avr/avrdude.html)                                                         | AVRDUDE instructions.                  |
