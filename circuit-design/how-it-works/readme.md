@@ -233,7 +233,7 @@ The two pins used to generate video form a resistor divider, the output of which
 | Pin                   | Resistor |
 | --------------------- | -------- |
 | PB1/digital pin 9     | 1K       |
-| TXD/PD1/digital pin 1 | 100R     |
+| TXD/PD1/digital pin 1 | 470R     |
 
 When the 75R input impedence of the receiving system is taken into account, this can produce the following voltages:
 
