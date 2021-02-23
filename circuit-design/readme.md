@@ -96,11 +96,13 @@ avrdude -pM328P -Ulfuse:w:0xff:m -Uhfuse:w:0xde:m -Uefuse:w:0xfd:m
 
 Note that you will need to add command line arguments to this to specify which programmer you are using, for example:
 
-| Programmer                                 | Suffix                   |
-| ------------------------------------------ | ------------------------ |
-| USBtiny                                    | -cusbtiny                |
-| Arduino as ISP on COM port 3 under Windows | -cavrisp -Pcom3          |
-| Arduino as ISP on COM port 3 under Linux   | -cavrisp /dev/ttyS3      |
+| Programmer                                 | Suffix                         |
+| ------------------------------------------ | ------------------------------ |
+| USBtiny                                    | -cusbtiny                      |
+| Arduino as ISP on COM port 3 under Windows | -cavrisp -b 19200 -Pcom3       |
+| Arduino as ISP on COM port 3 under Linux   | -cavrisp -b 19200 -P/dev/ttyS3 |
+
+If you are running AVRDUDE under Windows Subsystem for Linux, you may find that the remapped COM ports do not work.  In these instances, running AVRDUDE under Windows at least once seems to resolve this.
 
 #### Flash
 
