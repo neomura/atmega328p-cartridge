@@ -139,10 +139,6 @@ When put together with the active video lines and the blank lines between, one f
 
 This totals 525 lines.
 
-###### Progressive scan
-
-In reality, most retrocomputers and games consoles simplify this by sending six long pulses; most TVs do not need the equalizing pulses, and this means that the same scanlines are updated every field, effectively producing 240p60.
-
 ##### Safe areas
 
 Most TVs do not show the full active area, trimming columns and rows from the edges.  An area in which this is understood to not occur is known as a safe area, though there are no standards regarding this.
@@ -184,6 +180,23 @@ To select a hue, the phase of the colorburst and the sine wave in the active vid
 | 225°             | Blue   |
 | 270°             | Cyan   |
 | 315°             | Green  |
+
+### Retrocomputers and retro consoles
+
+In reality, most retrocomputers and games consoles do not perfectly implement the NTSC specification.  This is actually fine, as long as the signals received by the TV still instruct it to draw some form of color picture.
+
+Most equipment will accept the same field over and over again.  Scanlines may be more pronounced on CRTs but this a common method for producing a form of 240p60 progressive scan.
+
+The 32usec short and long pulses can be extended to 63.5usec and halved in quantity, having the same duration as blank or active lines, with short pulses being the same length as HSYNC pulses (4.7usec), and long pulses being as long as a line, minus the length of a HSYNC pulse (63.5usec - 4.7usec = 58.8usec).  This is far from correct, but usually works.
+
+Taking all of this into account:
+
+| Lines    | Description                         |
+| -------- | ----------------------------------- |
+| 3        | Long pulses.                        |
+| 34       | Blank lines (just horizontal sync). |
+| 192      | Active lines.                       |
+| 33       | Blank lines (just horizontal sync). |
 
 ### Generation by the ATMega328P
 
@@ -254,17 +267,18 @@ Additionally, two PWM outputs are available for stereo sound.
 
 ## References
 
-| Link                                                                                                                                                                                                                                                                                                                   | Description                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| [https://github.com/rossumur/Arduinocade](https://github.com/rossumur/Arduinocade)                                                                                                                                                                                                                                     | Arduinocade project from which this was derived. |
-| [https://cnyack.homestead.com/files/modulation/ntsc_sig.htm](https://cnyack.homestead.com/files/modulation/ntsc_sig.htm)                                                                                                                                                                                               | Color phase details.                             |
-| [https://videocide.com/glossary/vertical-sync/](https://videocide.com/glossary/vertical-sync/)                                                                                                                                                                                                                         | Timing details on the vertical sync lines.       |
-| [https://en.wikipedia.org/wiki/IRE_(unit)](https://en.wikipedia.org/wiki/IRE_(unit))                                                                                                                                                                                                                                   | Details on IRE units.                            |
-| [https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title](https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title)                                                                                                                                                                                         | Another approach to AVR video generation.        |
-| [http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm](http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm)                                                                                                                                                                                                         | Similar approach with PIC.                       |
-| [https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/](https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/)                                                                                                     | Details on safe areas.                           |
-| [http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm](http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm) | Details on "240p progressive scan" NTSC.         |
-| [https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/](https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/)                                                                                                                                             | Raspberry Pi audio RC filter.                    |
-| [https://forum.videohelp.com/threads/377493-Questions-about-structure-of-NTSC-TV-video-signal#post2437187](https://forum.videohelp.com/threads/377493-Questions-about-structure-of-NTSC-TV-video-signal#post2437187)                                                                                                   | Discussion regarding negative voltages in NTSC.  |
+| Link                                                                                                                                                                                                                                                                                                                   | Description                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [https://github.com/rossumur/Arduinocade](https://github.com/rossumur/Arduinocade)                                                                                                                                                                                                                                     | Arduinocade project from which this was derived.            |
+| [https://cnyack.homestead.com/files/modulation/ntsc_sig.htm](https://cnyack.homestead.com/files/modulation/ntsc_sig.htm)                                                                                                                                                                                               | Color phase details.                                        |
+| [https://videocide.com/glossary/vertical-sync/](https://videocide.com/glossary/vertical-sync/)                                                                                                                                                                                                                         | Timing details on the vertical sync lines.                  |
+| [https://en.wikipedia.org/wiki/IRE_(unit)](https://en.wikipedia.org/wiki/IRE_(unit))                                                                                                                                                                                                                                   | Details on IRE units.                                       |
+| [https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title](https://www.youtube.com/watch?v=yhUCM9N-OKc&feature=emb_title)                                                                                                                                                                                         | Another approach to AVR video generation.                   |
+| [http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm](http://www.hpcc.ecs.soton.ac.uk/dan/pic/video_PIC.htm)                                                                                                                                                                                                         | Similar approach with PIC.                                  |
+| [https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/](https://extremereach.com/blog/understanding-the-safe-title-area-in-tv-production-and-why-its-important/)                                                                                                     | Details on safe areas.                                      |
+| [http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm](http://people.ece.cornell.edu/land/courses/ece5760/video/gvworks/GV%27s%20works%20%20NTSC%20demystified%20-%20B&W%20Video%20and%20Sync%20-%20Part%201.htm) | Details on "240p progressive scan" NTSC.                    |
+| [https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/](https://hackaday.com/2018/07/13/behind-the-pin-how-the-raspberry-pi-gets-its-audio/)                                                                                                                                             | Raspberry Pi audio RC filter.                               |
+| [https://forum.videohelp.com/threads/377493-Questions-about-structure-of-NTSC-TV-video-signal#post2437187](https://forum.videohelp.com/threads/377493-Questions-about-structure-of-NTSC-TV-video-signal#post2437187)                                                                                                   | Discussion regarding negative voltages in NTSC.             |
+| [https://www.hdretrovision.com/blog/2018/10/22/engineering-csync-part-1-setting-the-stage](https://www.hdretrovision.com/blog/2018/10/22/engineering-csync-part-1-setting-the-stage)                                                                                                                                   | Details on how retrocomputers and consoles generate frames. |
 
 A project was found while researching which used a PIC's serial output to generate color NTSC video through artifacting, through which the Arduinocade project was found.  This appears to have been lost.
