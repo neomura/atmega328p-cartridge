@@ -224,10 +224,10 @@ For the active video area, each byte written to the UDR0 register represents fou
 
 | Color | Palette A                  | Palette B                  |
 | ----- | -------------------------- | -------------------------- |
-| 0     | #0f0f0f (NTSC black)       | #0f0f0f (NTSC black)       |
-| 1     | #c2c500 (lime)             | #17fb6b (spring green)     |
-| 2     | #8481ff (light slate blue) | #ff4fdd (fuchsia)          |
-| 3     | #f0f0f0 (NTSC white)       | #0f0f0f (NTSC black)       |
+| 0     | #00011a (NTSC black)       | #000204 (NTSC black)       |
+| 1     | #518c00 (lime)             | #0d977c (spring green)     |
+| 2     | #6f40f8 (light slate blue) | #ed1d40 (fuchsia)          |
+| 3     | #bcc1d1 (NTSC white)       | #bec5c0 (NTSC white)       |
 
 The 15 cycles available are insufficient to evaluate the color of the pixel so the interrupt copies this data near-directly from one of a pair of buffers in SRAM.
 
