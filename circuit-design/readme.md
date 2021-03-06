@@ -2,7 +2,6 @@
 
 | Link                                         | Description                        |
 | -------------------------------------------- | ---------------------------------- |
-| [How it works](./how-it-works/readme.md)     | Details on how this circuit works. |
 | [cartridge.pro](./cartridge.pro)             | KiCAD project.                     |
 | [cartridge.sch](./cartridge.sch)             | KiCAD schematic.                   |
 | [cartridge.kicad_pcb](./cartridge.kicad_pcb) | KiCAD PCB layout.                  |
