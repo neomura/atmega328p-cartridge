@@ -5,7 +5,7 @@
 | Specification  | Value                                              |
 | -------------- | -------------------------------------------------- |
 | Video standard | NTSC or PAL 60.                                    |
-| Resolution     | 160x101.                                           |
+| Resolution     | 156x113.                                           |
 | Refresh rate   | 60Hz.                                              |
 | Colors         | 6, selecting 1 of 2 palettes of 4 colors per line. |
 
