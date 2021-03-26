@@ -90,7 +90,7 @@ In either case, **do not use both J1 and J2 to power the cartridge**.  This may 
 By default, an ATMega328P will use its internal 8MHz clock rather than an external crystal.  To configure this, use [AVRDUDE](https://www.nongnu.org/avrdude/) to set the correct fuse bits:
 
 ```shell
-avrdude -pM328P -Ulfuse:w:0xff:m -Uhfuse:w:0xde:m -Uefuse:w:0xfd:m
+avrdude -pM328P -Ulfuse:w:0xf7:m -Uhfuse:w:0xde:m -Uefuse:w:0xfd:m
 ```
 
 Note that you will need to add command line arguments to this to specify which programmer you are using, for example:
