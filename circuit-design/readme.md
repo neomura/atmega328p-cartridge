@@ -103,6 +103,8 @@ Note that you will need to add command line arguments to this to specify which p
 
 If you are running AVRDUDE under Windows Subsystem for Linux, you may find that the remapped COM ports do not work.  In these instances, running AVRDUDE under Windows at least once seems to resolve this.
 
+You may see an error that the extended fuse could not be written.  This is normal, as not all of its bits are writable; it could be argued to be more of an AVRDUDE bug that it tried to check them.
+
 #### Flash
 
 Next, write a program to flash.  Make sure that a .hex file to write exists in the current working directory, then execute:
