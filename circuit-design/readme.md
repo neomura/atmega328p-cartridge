@@ -56,9 +56,9 @@ This diode is included to prevent accidental high-voltage programming.  It can b
 ## Assembly instructions
 
 - Start by soldering J1 and J2.  I would recommend using some kind of clamp such as a crocodile clip to keep it firmly attached to the board (note that it will act as a heatsink, making soldering more difficult, if in contact with pins).  Use short bursts of high heat and allow time to cool between joints to avoid melting the plastic retainer.  After soldering, use a female socket to ensure that pins are straight, and use said female socket to correct the pins if not parallel with the PCB.
-- Solder all other components.  There is not much room inside the shell once constructed, so ensure that these are as close to the board top as possible and that leads are clipped shore.
+- Solder all other components.  There is not much room inside the shell once constructed, so ensure that these are as close to the board top as possible and that leads are clipped short.
 - Place the PCB, logo up, into the back half of the shell.
-- Place the front half of the shell on top and press fit.
+- Place the front half of the shell on top and press fit.  Be careful to ensure that no components will be crushed, such as C1 and C2; you may need to stand these at 45 degrees to avoid contact with the front half of the case.
 
 ### Program
 
