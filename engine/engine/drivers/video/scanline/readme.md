@@ -8,7 +8,7 @@ Two locations in SRAM (video_scanline_flags_a/video_scanline_flags_b) additional
 | --------------------------- | ------------------ | ------------------ |
 | VIDEO_SCANLINE_FLAG_PALETTE | Palette A is used. | Palette B is used. |
 
-The appropriate buffer/flags should be overwritten during GAME_LINE.
+The appropriate buffer/flags should be overwritten during game_row.
 
 | video_next_row | Write to buffer/flags |
 | -------------- | --------------------- |
@@ -26,7 +26,7 @@ The video_scanline_flags_store_immediate macro will do the same, but for a const
 ## Example
 
 ```assembly
-.macro game_line
+.macro game_row
   ; Switch to the alternative palette.
   video_scanline_flags_store_immediate VIDEO_SCANLINE_FLAG_PALETTE, r16
 
