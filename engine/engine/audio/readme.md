@@ -19,7 +19,7 @@ Most will follow a pattern like the following, assuming that the oscillator is c
 
 .cseg
 .macro game_setup
-  audio_example_setup example_noise_register, r16
+  audio_example_setup example_register, r16
 .endm
 
 .macro game_frame
@@ -39,7 +39,7 @@ Most will follow a pattern like the following, assuming that the oscillator is c
   push r1
 
   ; Generate the next audio sample.  Most oscillators output to r1.
-  audio_example_sample example_noise_register
+  audio_example_sample example_register
 
   out OCR0B, r1
   out OCR0A, r1
