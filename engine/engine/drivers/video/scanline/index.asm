@@ -123,3 +123,5 @@ pop r30
 
   video_scanline_flags_store_end:
 .endm
+
+.include "engine/drivers/video/scanline/point.asm"
