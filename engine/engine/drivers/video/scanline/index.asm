@@ -120,7 +120,6 @@ pop r30
 
   video_scanline_flags_store_even:
   store_immediate video_scanline_flags_b, @0, @1
-  sts video_scanline_flags_b, @0
 
   video_scanline_flags_store_end:
 .endm
