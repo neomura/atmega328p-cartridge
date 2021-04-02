@@ -28,7 +28,7 @@ The video_scanline_flags_store_immediate macro will do the same, but for a const
 ```assembly
 .macro game_row
   ; Switch to the alternative palette.
-  video_scanline_flags_store_immediate VIDEO_SCANLINE_FLAG_PALETTE, r16
+  video_scanline_flags_store_immediate r16, 1 << VIDEO_SCANLINE_FLAG_PALETTE
 
   ; Draw the following pixels from left to right:
   ; - Aquamarine
