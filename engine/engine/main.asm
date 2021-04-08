@@ -30,7 +30,10 @@ main:
 
   ; If this is not the first line, skip the game tick.
   cpi r17, 0
-  brne main_loop_skip_game_frame
+
+  breq main_loop_do_not_skip_game_frame
+  rjmp main_loop_skip_game_frame
+  main_loop_do_not_skip_game_frame:
 
   game_frame
 
