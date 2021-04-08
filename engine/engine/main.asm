@@ -2,6 +2,7 @@ main:
   globals_setup
   tv_standard_setup
   video_setup
+  pads_setup
 
   ; Configure audio output PWM - this is common to all drivers, so done here.
   ; Non-inverting fast PWM mode without a clock prescaler.
