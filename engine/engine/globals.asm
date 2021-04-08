@@ -1,10 +1,4 @@
 .include "m328Pdef.inc"
-.include "engine/utilities.asm"
-.include "engine/pads.asm"
-.include "engine/audio/sawtooth_mono/index.asm"
-.include "engine/audio/noise_mono/index.asm"
-.include "engine/audio/pulse_mono/index.asm"
-.include "engine/audio/triangle_mono/index.asm"
 
 ; The number of pixel columns in a frame.
 .equ VIDEO_COLUMNS = 156
@@ -53,3 +47,10 @@ video_next_row: .byte 1
 
 .org 0x00
   jmp main
+
+.include "engine/utilities.asm"
+.include "engine/pads.asm"
+.include "engine/audio/sawtooth_mono/index.asm"
+.include "engine/audio/noise_mono/index.asm"
+.include "engine/audio/pulse_mono/index.asm"
+.include "engine/audio/triangle_mono/index.asm"
