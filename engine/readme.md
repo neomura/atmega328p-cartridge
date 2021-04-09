@@ -98,5 +98,5 @@ Add this directory to your include path, include the globals file, include [driv
 
 A number of global declarations such as constants and macros can be found in:
 
-- [globals.asm](./globals.asm).
-- [utilities.asm](./utilities.asm).
+- [globals.asm](./engine/globals.asm).
+- [utilities.asm](./engine/utilities.asm).
