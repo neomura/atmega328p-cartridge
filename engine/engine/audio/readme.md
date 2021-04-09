@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../../readme.md)/[Engine](../readme.md)/Audio
+# [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/Audio
 
 These helper functions generate various waveforms which can be mixed to produce game audio.
 
