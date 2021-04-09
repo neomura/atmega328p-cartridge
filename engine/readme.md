@@ -17,7 +17,7 @@ Some registers have special purposes, so are used as little as possible:
 - `r0` and `r1` receive the result of the instructions `fmul`, `fmuls`, `fmulsu`, `mul`, `muls` and `mulsu`.
 - `r26`/`r27`, `r28`/`r29` and `r30`/`r31` are labelled `X`, `Y` and `Z` respectively and are used for indirect load, store and jump.
 
-If they are used, they are considered to belong to the main loop, and any interrupts must back them up (using `push`) beforehand and restore them (using `pop`) before `reti` (alongside `SREG`).
+If these are used, they are considered to belong to the main loop, and any interrupts must back them up (using `push`) beforehand and restore them (using `pop`) before `reti` (alongside `SREG`).
 
 `r0` through `r15` are not directly usable with the instructions `cpi`, `fmul`, `fmuls`, `fmulsu`, `muls`, `mulsu`, `cbr`, `ldi`, `lds`, `ori`, `sbci`, `sbr`, `ser`, `sts`, `subi`, `andi` or `cbr`.  Consequently, if a use is found which is not made impossible or awkward through this limitation, these registers should be prioritized to leave the more flexible r16-r31 available for other operations.
 
