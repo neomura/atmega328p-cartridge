@@ -86,7 +86,6 @@ Add this directory to your include path, include the globals file, include [driv
 .macro game_sample
   ; Invoked once per audio sample, at approximately 15750Hz, during an interrupt.
   ; All registers are to be considered clobbered.
-  ; Any registers except r16 and r17 need to be pushed to the stack before use, and popped before exit.
   ; Output the left channel to OCR0B, and the right channel to OCR0A.
 .endm
 
