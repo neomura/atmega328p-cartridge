@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/[Audio](../readme.md)/Triangle (mono)
+# [neomura/atmega328p-cartridge](../../../../readme.md)/[Engine](../../../readme.md)/[Audio](../readme.md)/Triangle (mono)
 
 Monaural triangle wave generator.
 

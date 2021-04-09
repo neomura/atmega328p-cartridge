@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/[Audio](../readme.md)/Pulse (mono)
+# [neomura/atmega328p-cartridge](../../../../readme.md)/[Engine](../../../readme.md)/[Audio](../readme.md)/Pulse (mono)
 
 Monaural pulse wave generator with variable duty cycle.
 

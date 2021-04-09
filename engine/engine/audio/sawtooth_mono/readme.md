@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/[Audio](../readme.md)/Sawtooth (mono)
+# [neomura/atmega328p-cartridge](../../../../readme.md)/[Engine](../../../readme.md)/[Audio](../readme.md)/Sawtooth (mono)
 
 Monaural rising sawtooth wave generator.
 

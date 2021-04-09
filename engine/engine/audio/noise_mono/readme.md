@@ -1,4 +1,4 @@
-# [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/[Audio](../readme.md)/Noise (mono)
+# [neomura/atmega328p-cartridge](../../../../readme.md)/[Engine](../../../readme.md)/[Audio](../readme.md)/Noise (mono)
 
 Monaural 15-bit linear-feedback shift register noise generator.
 
