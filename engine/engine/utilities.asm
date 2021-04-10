@@ -38,6 +38,61 @@
   ldi r31, HIGH(@0)
 .endm
 
+; Load a two-byte word into a register pair in 4 cycles.
+; - The r* to load the low byte into.
+; - The r* to load the high byte into.
+; - The address of the low byte to load.
+.macro load_16_direct
+  lds @0, @2
+  lds @1, @2 + 1
+.endm
+
+; Load a two-byte word into X in 4 cycles.
+; - The address of the low byte to load.
+.macro load_16_direct_x
+  load_16_direct r26, r27, @0
+.endm
+
+; Load a two-byte word into Y in 4 cycles.
+; - The address of the low byte to load.
+.macro load_16_direct_y
+  load_16_direct r28, r29, @0
+.endm
+
+; Load a two-byte word into Z in 4 cycles.
+; - The address of the low byte to load.
+.macro load_16_direct_z
+  load_16_direct r30, r31, @0
+.endm
+
+; Store a two-byte word from a register pair in 4 cycles.
+; - The address of the low byte to store.
+; - The r* to store the low byte from.
+; - The r* to store the high byte from.
+.macro store_16_direct
+  ; This order is necessary as some registers seem to clear the low byte on setting the high.
+  sts @0 + 1, @2
+  sts @0, @1
+.endm
+
+; Store a two-byte word from X in 4 cycles.
+; - The address of the low byte to store.
+.macro store_16_direct_x
+  store_16_direct @0, r26, r27
+.endm
+
+; Store a two-byte word from X in 4 cycles.
+; - The address of the low byte to store.
+.macro store_16_direct_y
+  store_16_direct @0, r28, r29
+.endm
+
+; Store a two-byte word from Z in 4 cycles.
+; - The address of the low byte to store.
+.macro store_16_direct_z
+  store_16_direct @0, r30, r31
+.endm
+
 ; Write a constant value to an IO port in 3 cycles.
 ; - The address to which to write.
 ; - The value to store.
