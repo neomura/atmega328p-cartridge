@@ -110,7 +110,7 @@
 
   game_sample
 
-  pads_poll
+  .include "engine/pads/poll.asm"
 
   ; Restore clobbered registers from the stack.
   pop r16

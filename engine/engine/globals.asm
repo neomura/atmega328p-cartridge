@@ -39,6 +39,8 @@
 ; When 0, some time is available to execute game logic (but row 0 is still needed).
 video_next_row: .byte 1
 
+.include "engine/pads/globals.asm"
+
 .cseg
 
 .macro globals_setup
@@ -49,7 +51,6 @@ video_next_row: .byte 1
   jmp main
 
 .include "engine/utilities.asm"
-.include "engine/pads.asm"
 .include "engine/audio/sawtooth_mono/index.asm"
 .include "engine/audio/noise_mono/index.asm"
 .include "engine/audio/pulse_mono/index.asm"

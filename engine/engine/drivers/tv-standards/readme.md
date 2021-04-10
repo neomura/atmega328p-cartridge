@@ -5,7 +5,7 @@ A TV standard driver is responsible for both communicating with the TV (implemen
 - Invoking the `audio_sample` macro at approximately 15750Hz.
 - Invoking the `video_column` macro and sending its output to the display.
 - Updating the `video_next_row` counter to the row number of the next visible line.  For example, this should be 0 after the last line on the screen, then 1 while the first line is being drawn to the display, etc.
-- Invoking the `pads_poll` macro at least 17 times per frame, spaced at least 12μs apart.
+- Executing [engine/pads/poll.asm](../../pads/poll.asm) at least 17 times per frame, spaced at least 12μs apart.
 
 ## Implementations
 
