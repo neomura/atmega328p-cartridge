@@ -1,8 +1,8 @@
 # [neomura/atmega328p-cartridge](../../../../../readme.md)/[Engine](../../../../readme.md)/[Drivers](../../readme.md)/[Video](../readme.md)/Scanline
 
-Two regions of SRAM (video_scanline_buffer_a/video_scanline_buffer_b) describe a double scanline buffer which is directly sent to the display.
+Two regions of SRAM (`video_scanline_buffer_a`/`video_scanline_buffer_b`) describe a double scanline buffer which is directly sent to the display.
 
-Two locations in SRAM (video_scanline_flags_a/video_scanline_flags_b) additionally define double-buffered flags describing how the next line should be output:
+Two locations in SRAM (`video_scanline_flags_a`/`video_scanline_flags_b`) additionally define double-buffered flags describing how the next line should be output:
 
 | Bit                         | When cleared       | When set           |
 | --------------------------- | ------------------ | ------------------ |
@@ -15,13 +15,13 @@ The appropriate buffer/flags should be overwritten during game_row.
 | Odd (1, 3, 5)  | A                     |
 | Even (0, 2, 4) | B                     |
 
-The video_scanline_buffer_load macro will load a pointer to the buffer to write to its given register pair.
+The `video_scanline_buffer_load` macro will load a pointer to the buffer to write to its given register pair.
 
-The video_scanline_buffer_load_x, video_scanline_buffer_load_y and video_scanline_buffer_load_z will do the same, but to the specified register pairs.
+The `video_scanline_buffer_load_x`, `video_scanline_buffer_load_y` and `video_scanline_buffer_load_z` will do the same, but to the specified register pairs.
 
-The video_scanline_flags_store macro will store the given register in the appropriate flag.
+The `video_scanline_flags_store` macro will store the given register in the appropriate flag.
 
-The video_scanline_flags_store_immediate macro will do the same, but for a constant value (using a register which will be clobbered).
+The `video_scanline_flags_store_immediate` macro will do the same, but for a constant value (using a register which will be clobbered).
 
 ## Example
 
