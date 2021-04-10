@@ -600,50 +600,39 @@ Text GLabel 3950 3550 2    50   Output ~ 0
 AUDIO_PWM_R
 Text GLabel 3950 3450 2    50   Output ~ 0
 AUDIO_PWM_L
-$Comp
-L Connector_Generic:Conn_02x03_Odd_Even J2
-U 1 1 6030844C
-P 6300 3800
-F 0 "J2" H 6350 4117 50  0000 C CNN
-F 1 "ICSP" H 6350 4026 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal" H 6300 3800 50  0001 C CNN
-F 3 "~" H 6300 3800 50  0001 C CNN
-	1    6300 3800
-	1    0    0    -1  
-$EndComp
-Text GLabel 6600 3800 2    50   Output ~ 0
+Text GLabel 6950 3450 2    50   Output ~ 0
 MOSI
-Text GLabel 6100 3700 0    50   Input ~ 0
+Text GLabel 6950 3550 2    50   Input ~ 0
 MISO
 $Comp
 L power:GND #PWR0114
 U 1 1 6030D1C7
-P 6600 3900
-F 0 "#PWR0114" H 6600 3650 50  0001 C CNN
-F 1 "GND" H 6605 3727 50  0000 C CNN
-F 2 "" H 6600 3900 50  0001 C CNN
-F 3 "" H 6600 3900 50  0001 C CNN
-	1    6600 3900
+P 6950 3750
+F 0 "#PWR0114" H 6950 3500 50  0001 C CNN
+F 1 "GND" H 6955 3577 50  0000 C CNN
+F 2 "" H 6950 3750 50  0001 C CNN
+F 3 "" H 6950 3750 50  0001 C CNN
+	1    6950 3750
 	1    0    0    -1  
 $EndComp
-Text GLabel 6100 3800 0    50   Input ~ 0
+Text GLabel 6950 3650 2    50   Input ~ 0
 SCK
-Text GLabel 6100 3900 0    50   Output ~ 0
+Text GLabel 6950 3350 2    50   Output ~ 0
 RESET
-$Comp
-L power:+5V #PWR0115
-U 1 1 6030EE81
-P 6600 3700
-F 0 "#PWR0115" H 6600 3550 50  0001 C CNN
-F 1 "+5V" H 6615 3873 50  0000 C CNN
-F 2 "" H 6600 3700 50  0001 C CNN
-F 3 "" H 6600 3700 50  0001 C CNN
-	1    6600 3700
-	1    0    0    -1  
-$EndComp
 NoConn ~ 2750 1250
 Wire Notes Line
 	600  750  2500 750 
 Wire Notes Line
 	600  2150 2500 2150
+$Comp
+L Connector_Generic:Conn_01x05 J2
+U 1 1 60717024
+P 6750 3550
+F 0 "J2" H 6668 3125 50  0000 C CNN
+F 1 "ICSP" H 6668 3216 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 6750 3550 50  0001 C CNN
+F 3 "~" H 6750 3550 50  0001 C CNN
+	1    6750 3550
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

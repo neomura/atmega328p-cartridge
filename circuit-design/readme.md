@@ -13,7 +13,7 @@ Links are included for reference only and are not endorsements.
 | Reference   | Description                                                          | Model No.         | Link                                                                                                                                                                                               |
 | ----------- | -------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | J1          | Cartridge connector (right-angled 1x15 2.54mm male pin header)       | Unknown           | [https://www.aliexpress.com/item/4000660389713.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG](https://www.aliexpress.com/item/4000660389713.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG)                 |
-| J2          | ICSP header (right-angled 2x3 2.54mm male pin header)                | Unknown           | [https://www.aliexpress.com/item/32863048486.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG](https://www.aliexpress.com/item/32863048486.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG)                     |
+| J2          | ICSP header (right-angled 1.5 2.54mm male pin header)                | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=225_230&products_id=3128](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=225_230&products_id=3128)             |
 | U1          | Microcontroller                                                      | ATMega328P-PU     | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_161_162&products_id=1225](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=140_161_162&products_id=1225)     |
 | X1          | 14.31818MHz (NTSC) or 17.734MHz (PAL 60) HC-49S crystal              | Unknown           | [https://www.aliexpress.com/item/32496964768.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG](https://www.aliexpress.com/item/32496964768.html?spm=a2g0s.9042311.0.0.65b74c4dMpBmdG) or [https://www.ebay.co.uk/itm/20pcs-17-734MHz-HC-49S-Crystal-Oscillator-Passive-Quartz-Resonator/253056403948?_trkparms=aid%3D111001%26algo%3DREC.SEED%26ao%3D1%26asc%3D20160908105057%26meid%3D80fd100fd3114f5ba72a3c52a978bf7f%26pid%3D100675%26rk%3D1%26rkt%3D15%26mehot%3Dnone%26sd%3D253056403948%26itm%3D253056403948%26pmt%3D1%26noa%3D1%26pg%3D2380057%26brand%3DUnbranded&_trksid=p2380057.c100675.m4236&_trkparms=pageci%3Ae010b98a-7b73-11eb-b850-3214b911b9a1%7Cparentrq%3Af3c20fd51770a7b3a0b1a3e8fffcf90a%7Ciid%3A1](https://www.ebay.co.uk/itm/20pcs-17-734MHz-HC-49S-Crystal-Oscillator-Passive-Quartz-Resonator/253056403948?_trkparms=aid%3D111001%26algo%3DREC.SEED%26ao%3D1%26asc%3D20160908105057%26meid%3D80fd100fd3114f5ba72a3c52a978bf7f%26pid%3D100675%26rk%3D1%26rkt%3D15%26mehot%3Dnone%26sd%3D253056403948%26itm%3D253056403948%26pmt%3D1%26noa%3D1%26pg%3D2380057%26brand%3DUnbranded&_trksid=p2380057.c100675.m4236&_trkparms=pageci%3Ae010b98a-7b73-11eb-b850-3214b911b9a1%7Cparentrq%3Af3c20fd51770a7b3a0b1a3e8fffcf90a%7Ciid%3A1) |
 | R1          | 1M load resistor                                                     | Unknown           | [https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=480](https://www.bitsbox.co.uk/index.php?main_page=product_info&cPath=83_84_85&products_id=480)             |
@@ -37,7 +37,7 @@ Right-angled male pin headers appear to come in two distinct styles; one where t
 
 #### J2
 
-Non right-angled pin headers will work if they do not have to fit in a cartridge shell.
+In contrast to J1, this must be the style with the plastic retainer in contact with the PCB to fit inside a cartridge shell.  This can be substituted for a vertical pin header (or a socket) if it does not need to fit inside a cartridge shell.
 
 #### U1
 
@@ -62,15 +62,7 @@ This diode is included to prevent accidental high-voltage programming.  It can b
 
 ### Program
 
-J2 is a standard 2x3 ICSP header.
-
-```
-               .-----.
-Right 4 (MISO) | O O | Right 2 (VCC)
-Right 3 (SCK)   |O O | Right 5 (MOSI)
-Right 6 (RST)  | O O | Right 1 (GND)
-               '-----'
-```
+J2 is all pins except VCC of a standard 1x6 ICSP header.  These have been ordered to match pins Arduino pins 10-13.
 
 If using an [Arduino as an ISP](https://www.arduino.cc/en/Tutorial/BuiltInExamples/ArduinoISP), connect the following pins (where the Arduino has multiple pins labelled the same, any will work):
 
@@ -82,8 +74,6 @@ If using an [Arduino as an ISP](https://www.arduino.cc/en/Tutorial/BuiltInExampl
 | 12      | MISO. |
 | 11      | MOSI. |
 | 10      | RST.  |
-
-In either case, **do not use both J1 and J2 to power the cartridge**.  This may damage the cartridge, your programmer, the console, or all of them.  Most programmers include a jumper which can be used to disable their VCC line, such as J3 with a USBtiny.
 
 #### Set fuse bits
 
