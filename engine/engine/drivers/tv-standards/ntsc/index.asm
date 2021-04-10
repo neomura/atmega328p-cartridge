@@ -5,7 +5,7 @@
 .equ TV_STANDARD_NTSC_HSYNC_PULSE_CYCLES = 66
 
 ; Approximately 58.8usec, the duration of of a VSYNC pulse in CPU cycles.
-.EQU TV_STANDARD_NTSC_VSYNC_PULSE_CYCLES = 840
+.equ TV_STANDARD_NTSC_VSYNC_PULSE_CYCLES = 840
 
 ; Approximately 5.3usec, the point during a line at which the colorburst starts.
 .equ TV_STANDARD_NTSC_COLORBURST_START_CYCLES = 76
