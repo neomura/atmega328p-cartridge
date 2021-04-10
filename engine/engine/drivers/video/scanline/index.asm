@@ -16,12 +16,8 @@ store_immediate video_scanline_flags_b, r16, 0
 
 .macro video_before_columns
 
-push r30
-push r31
-
 ; Check whether we are on an odd or even row.
-lds r30, video_next_row
-bst r30, 0
+bst video_next_row, 0
 brts video_scanline_before_columns_odd
 
 ; Even.
@@ -39,7 +35,6 @@ video_scanline_before_columns_end:
 .endm
 
 .macro video_column
-ld @0, Z+
 nop
 nop
 nop
@@ -49,19 +44,19 @@ nop
 nop
 nop
 nop
+; todo need to doc that we're using this register
+ld r0, Z+
+sts UDR0, r0
 .endm
 
 .macro video_after_columns
-pop r31
-pop r30
 .endm
 
 ; - A r* into which to load the low byte of a pointer to the buffer to write to.
 ; - A r* into which to load the high byte of a pointer to the buffer to write to.
 .macro video_scanline_buffer_load
   ; Check whether we are on an odd or even row.
-  lds @0, video_next_row
-  bst @0, 0
+  bst video_next_row, 0
   brts video_scanline_buffer_load_even
 
   ; Odd.
@@ -92,8 +87,7 @@ pop r30
 ; - A r* containing the flags to store.
 .macro video_scanline_flags_store
   ; Check whether we are on an odd or even row.
-  lds @0, video_next_row
-  bst @0, 0
+  bst video_next_row, 0
   brts video_scanline_flags_store_even
 
   ; Odd.
@@ -110,8 +104,7 @@ pop r30
 ; - The flags to store.
 .macro video_scanline_flags_store_immediate
   ; Check whether we are on an odd or even row.
-  lds @0, video_next_row
-  bst @0, 0
+  bst video_next_row, 0
   brts video_scanline_flags_store_even
 
   ; Odd.

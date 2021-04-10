@@ -33,11 +33,12 @@
 ; The number of audio samples per second.
 .equ SAMPLE_RATE = 15750
 
-.dseg
-
 ; The number of the row which is to be prepared.
 ; When 0, some time is available to execute game logic (but row 0 is still needed).
-video_next_row: .byte 1
+.def video_next_row = r16
+
+; Used by the main loop to track which video row was drawn last.
+.def main_loop_previous_video_row = r6
 
 ; A general-purpose register in the r2-r15 range for use by games.
 .def game_general_purpose_low_a = r7
@@ -98,7 +99,7 @@ video_next_row: .byte 1
 .cseg
 
 .macro globals_setup
-  store_immediate video_next_row, r16, 0
+  ldi video_next_row, 0
 .endm
 
 .org 0x00
@@ -109,3 +110,4 @@ video_next_row: .byte 1
 .include "engine/audio/noise_mono/index.asm"
 .include "engine/audio/pulse_mono/index.asm"
 .include "engine/audio/triangle_mono/index.asm"
+.include "game/globals.asm"

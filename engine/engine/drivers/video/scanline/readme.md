@@ -2,6 +2,7 @@
 
 Two regions of SRAM (`video_scanline_buffer_a`/`video_scanline_buffer_b`) describe a double scanline buffer which is directly sent to the display.
 
+TODO replace with a register?
 Two locations in SRAM (`video_scanline_flags_a`/`video_scanline_flags_b`) additionally define double-buffered flags describing how the next line should be output:
 
 | Bit                         | When cleared       | When set           |
@@ -46,3 +47,5 @@ The `video_scanline_flags_store_immediate` macro will do the same, but for a con
   st Z+, r16
 .endm
 ```
+
+TODO document point, line, etc.

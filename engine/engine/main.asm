@@ -6,40 +6,39 @@ main:
 
   ; Configure audio output PWM - this is common to all drivers, so done here.
   ; Non-inverting fast PWM mode without a clock prescaler.
-  out_immediate TCCR0A, r16, (1 << COM0A1) | (1 << COM0B1) | (1 << WGM01) | (1 << WGM00)
-  out_immediate TCCR0B, r16, (1 << CS00)
+  ; TODO move this into a file
+  out_immediate TCCR0A, r31, (1 << COM0A1) | (1 << COM0B1) | (1 << WGM01) | (1 << WGM00)
+  out_immediate TCCR0B, r31, (1 << CS00)
   sbi DDRD, DDD5
   sbi DDRD, DDD6
 
-  game_setup
+  .include "game/setup.asm"
 
   tv_standard_start
 
-  ; Track the line which has last been drawn.
-  ldi r16, 255
+  ; Track the line which has last been drawn.  Initialize as 255 so that a change to 0 is seen.
+  clr main_loop_previous_video_row
+  com main_loop_previous_video_row
 
   main_loop:
 
-  lds r17, video_next_row
-
   ; If the video driver is not yet expecting the next line, busy wait.
-  cp r16, r17
+  cp video_next_row, main_loop_previous_video_row
   breq main_loop
 
-  push r17
+  mov main_loop_previous_video_row, video_next_row
 
   ; If this is not the first line, skip the game tick.
-  cpi r17, 0
+  cpi video_next_row, 0
 
   breq main_loop_do_not_skip_game_frame
-  rjmp main_loop_skip_game_frame
+  jmp main_loop_skip_game_frame
   main_loop_do_not_skip_game_frame:
 
-  game_frame
+  .include "game/frame.asm"
 
   main_loop_skip_game_frame:
 
-  game_row
+  .include "game/row.asm"
 
-  pop r16
-  rjmp main_loop
+  jmp main_loop

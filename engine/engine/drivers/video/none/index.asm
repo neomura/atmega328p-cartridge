@@ -7,7 +7,6 @@
 .endm
 
 .macro video_column
-ldi @0, 0
 nop
 nop
 nop
@@ -18,6 +17,10 @@ nop
 nop
 nop
 nop
+nop
+nop
+ldi r30, 0
+sts UDR0, r30
 .endm
 
 .macro video_after_columns

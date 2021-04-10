@@ -1,6 +1,6 @@
 .cseg
 
-store_immediate_16 pads_poll_callback, r16, pads_poll_latched
+store_immediate_16 pads_poll_callback, r31, pads_poll_latched
 
 ; Enable internal pull-ups on data inputs.
 sbi PORTC, 0

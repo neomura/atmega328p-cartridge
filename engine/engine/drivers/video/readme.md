@@ -18,7 +18,7 @@
 
 .macro video_before_columns
   ; Invoked before any invocations of video_column on a line.
-  ; Any register except r16 and r17 can be set here, but must be pushed to the stack first.
+  ; TODO which registers can we use safely?
   ; If the T flag is cleared, palette A is selected for this line.
   ; If the T flag is set, palette B is selected for this line.
 .endm
@@ -26,8 +26,8 @@
 .macro video_column
   ; Invoked once per four pixel columns.
   ; Any register initialized in video_before_columns will be available for use here.
-  ; Must take exactly 11 cycles; pad with NOPs if spare time is available.
-  ; The r* referenced by @0 (which will not overlap with any register pushed in video_before_columns) must contain the byte of four pixel columns by the end.
+  ; Must take exactly 13 cycles; pad with NOPs if spare time is available.
+  ; The last instruction must store the next pixel's data in UDR0.
 .endm
 
 .macro video_after_columns
