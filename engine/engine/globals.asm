@@ -39,6 +39,60 @@
 ; When 0, some time is available to execute game logic (but row 0 is still needed).
 video_next_row: .byte 1
 
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_a = r7
+
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_b = r8
+
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_c = r9
+
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_d = r10
+
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_e = r11
+
+; A general-purpose register in the r2-r15 range for use by games.
+.def game_general_purpose_low_f = r12
+
+; A general-purpose register in the r2-r15 range for use by tv standard drivers.
+.def tv_standard_general_purpose_low_a = r13
+
+; A general-purpose register in the r2-r15 range for use by tv standard drivers.
+.def tv_standard_general_purpose_low_b = r14
+
+; A general-purpose register in the r2-r15 range for use by tv standard drivers.
+.def tv_standard_general_purpose_low_c = r15
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_a = r17
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_b = r18
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_c = r19
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_d = r20
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_e = r21
+
+; A general-purpose register in the r17-r25 range for use by games.
+.def game_general_purpose_high_f = r22
+
+; A general-purpose register in the r17-r25 range for use by tv standard drivers.
+.def tv_standard_general_purpose_high_a = r23
+
+; A general-purpose register in the r17-r25 range for use by tv standard drivers.
+.def tv_standard_general_purpose_high_b = r24
+
+; A general-purpose register in the r17-r25 range for use by tv standard drivers.
+.def tv_standard_general_purpose_high_c = r25
+
 .include "engine/pads/globals.asm"
 
 .cseg
