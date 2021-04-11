@@ -35,8 +35,13 @@
   cpi tv_standard_ntsc_state, TV_STANDARD_NTSC_STATE_PRE_BLANK_END
   brne tv_standard_ntsc_interrupt_save_next_state_and_exit_near
 
-  ; Otherwise, get the main loop to start preparing the second line before skipping active video.
+  ; Otherwise, get the main loop to start preparing the second line.
   inc video_next_row
+
+  ; The main loop should be finished with pad state now, so lower the pad latch line before we start polling it on a future line.
+  cbi PORTC, 5
+
+  ; And then skip active video
   rjmp tv_standard_ntsc_interrupt_save_next_state_and_exit_near
 
 
@@ -56,6 +61,9 @@
   ; Start from the top.
   ldi tv_standard_ntsc_state, TV_STANDARD_NTSC_STATE_VSYNC_START
 
+  ; Raise the latch line so that we can lower it on a later line.
+  sbi PORTC, 5
+
   ; Skip colorburst and active video.
   rjmp tv_standard_ntsc_interrupt_save_state_and_exit
 
@@ -64,6 +72,51 @@
 
 
   tv_standard_ntsc_interrupt_non_blank:
+
+  ; Pads are polled during the first 16 lines.
+  cpi video_next_row, 9
+  brsh tv_standard_ntsc_interrupt_after_pads
+
+  ; We need to alternate between two different operations, so use line repeat flag to manage this.
+  cpi tv_standard_ntsc_state, TV_STANDARD_NTSC_STATE_ACTIVE_A
+  brne tv_standard_ntsc_interrupt_odd
+
+  ; This is an even line.
+
+  ; Copy the latest bit from each pad into the carry flag, then shift that onto each pad's register.
+  clc
+  sbis PINC, 3
+  sec
+  ror pad_0
+
+  clc
+  sbis PINC, 2
+  sec
+  ror pad_1
+
+  clc
+  sbis PINC, 1
+  sec
+  ror pad_2
+
+  clc
+  sbis PINC, 0
+  sec
+  ror pad_3
+
+  ; Lower the clock line.
+  cbi PORTC, 4
+
+  rjmp tv_standard_ntsc_interrupt_after_pads
+
+  tv_standard_ntsc_interrupt_odd:
+
+  ; Raise the clock line.
+  sbi PORTC, 4
+
+  rjmp tv_standard_ntsc_interrupt_after_pads
+
+  tv_standard_ntsc_interrupt_after_pads:
 
   tv_standard_ntsc_interrupt_active_video
 
@@ -101,10 +154,6 @@
 
   ; todo looks like we're generally reserving r30/r31 in interrupts need to doc that
   .include "game/sample.asm"
-
-  ; TODO can we reduce the need for this
-  ; TODO are these regs documented?
-  .include "engine/pads/poll.asm"
 
   ; Restore clobbered registers from the stack.
   pop r30
