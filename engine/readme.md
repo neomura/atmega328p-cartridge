@@ -74,7 +74,7 @@ This expects a number of files to exist:
 Use this file to declare any constants, SRAM or register mappings which will be used in other files.  You will need to include the globals of any [drivers](./engine/drivers/readme.md) you use.
 
 ```assembly
-.include "engine/drivers/tv-standards/ntsc/globals.asm"
+.include "engine/drivers/tv-standards/ntsc/globals/index.asm"
 .include "engine/drivers/video/scanline/globals.asm"
 
 .equ EXAMPLE_GAME_CONSTANT = 0
