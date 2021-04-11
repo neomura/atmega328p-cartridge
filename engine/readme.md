@@ -110,6 +110,8 @@ Use this file to perform final setup steps needed to start the game, such as ena
 This file is executed once per frame, by the main loop.  It is executed after `game/start.asm`, and before the first execution of `game/row.asm`.
 
 ```assembly
+.cseg
+
 lds game_general_purpose_high_a, example_game_state
 inc game_general_purpose_high_a
 sts example_game_state, game_general_purpose_high_a
@@ -120,6 +122,8 @@ sts example_game_state, game_general_purpose_high_a
 This file is executed once per pixel row, by the main loop.  It should be used to communicate with the [video driver](./engine/drivers/video/readme.md).
 
 ```assembly
+.cseg
+
 lds game_general_purpose_high_a, example_game_state
 cp game_general_purpose_high_a, video_next_row
 brsh game_row_palette_b
@@ -142,6 +146,8 @@ st Z+, game_general_purpose_high_a
 This file is executed by the TV standard driver once per audio sample.  `r30` and `r31` are safe to use.  Any other registers should be `push`ed before use and `pop`ped after use to prevent interfering with either the main loop or the TV standard driver.  Output the left channel to `OCR0B`, and the right channel to `OCR0A`.
 
 ```assembly
+.cseg
+
 lds r31, example_game_state
 out OCR0B, r31
 out OCR0A, r31
@@ -163,7 +169,7 @@ This file is executed  Must take exactly 13 cycles, and store the next byte of f
 .include "engine/drivers/video/scanline/column.asm"
 ```
 
-### `game/video/before-columns.asm`
+### `game/video/after-columns.asm`
 
 This file is executed by the TV standard driver immediately after the last pixel on a row is output.  `pop` all registers here which were `pushed`.  Usually this just involves handover to the [video driver](./engine/drivers/video/readme.md).
 
