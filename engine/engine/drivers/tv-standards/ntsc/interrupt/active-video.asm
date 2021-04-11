@@ -1,5 +1,5 @@
 .macro tv_standard_ntsc_interrupt_active_video
-  video_before_columns
+  .include "game/video/before-columns.asm"
 
   ; Delay until the start of the active video segment.
   ; Factored in:
@@ -27,12 +27,12 @@
 
   ; Loop through the columns, loading them into the serial port.
   tv_standard_ntsc_interrupt_active_video_loop:
-  video_column
+  .include "game/video/column.asm"
   dec tv_standard_general_purpose_high_b
   brne tv_standard_ntsc_interrupt_active_video_loop
 
   ; Turn the serial port off.
   store_immediate UCSR0B, tv_standard_general_purpose_high_b, 0
 
-  video_after_columns
+  .include "game/video/after-columns.asm"
 .endm

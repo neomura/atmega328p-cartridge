@@ -4,7 +4,6 @@
 
 | Link                             | Description               |
 | -------------------------------- | ------------------------- |
-| [None](./none/readme.md)         | Generates a black screen. |
 | [Scanline](./scanline/readme.md) | Double scanline buffer.   |
 
 ## Responsibilities

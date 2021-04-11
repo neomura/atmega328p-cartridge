@@ -1,8 +1,9 @@
+.include "engine/globals.asm"
+
+.cseg
+
 main:
   globals_setup
-  tv_standard_setup
-  video_setup
-  .include "engine/pads/setup.asm"
 
   ; Configure audio output PWM - this is common to all drivers, so done here.
   ; Non-inverting fast PWM mode without a clock prescaler.
@@ -12,13 +13,14 @@ main:
   sbi DDRD, DDD5
   sbi DDRD, DDD6
 
+  .include "engine/pads/setup.asm"
   .include "game/setup.asm"
-
-  tv_standard_start
 
   ; Track the line which has last been drawn.  Initialize as 255 so that a change to 0 is seen.
   clr main_loop_previous_video_row
   com main_loop_previous_video_row
+
+  .include "game/start.asm"
 
   main_loop:
 

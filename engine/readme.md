@@ -58,39 +58,117 @@ The resulting mapping is as follows:
 | `r30`    | N/A                                  | `Z` (low).                                                                                                                                                                                     |
 | `r31`    | N/A                                  | `Z` (high).                                                                                                                                                                                    |
 
-## Installation
+## Creating a game
 
-Add this directory to your include path, include the globals file, include [drivers](./engine/drivers/readme.md) of each type other than a TV standard driver, declare event handling macros for game logic, then include the TV standard driver and entry point file:
+The entry point for AVRA will most likely look like this, assuming that this repository is the submodule `submodules/neomura/atmega328p-cartridge`:
 
 ```assembly
 .includepath "submodules/neomura/atmega328p-cartridge/engine"
-
-.include "engine/globals.asm"
-
-.include "engine/drivers/video/scanline/index.asm"
-
-.macro game_setup
-  ; Invoked after drivers have been configured, but before they or the main loop have been started.
-.endm
-
-.macro game_frame
-  ; Invoked once per frame, immediately after reading pad data and before the first game_row, in the main loop.
-  ; Use this opportunity to update game state.
-.endm
-
-.macro game_row
-  ; Invoked once per pixel row, starting from the top, in the main loop.
-  ; Use this opportunity to communicate with the video driver.
-.endm
-
-.macro game_sample
-  ; Invoked once per audio sample, at approximately 15750Hz, during an interrupt.
-  ; All registers are to be considered clobbered.
-  ; Output the left channel to OCR0B, and the right channel to OCR0A.
-.endm
-
-.include "engine/drivers/tv-standards/ntsc/index.asm"
 .include "engine/main.asm"
+```
+
+This expects a number of files to exist:
+
+### `game/globals.asm`
+
+Use this file to declare any constants, SRAM or register mappings which will be used in other files.  You will need to include the globals of any [drivers](./engine/drivers/readme.md) you use.
+
+```assembly
+.include "engine/drivers/tv-standards/ntsc/globals.asm"
+.include "engine/drivers/video/scanline/globals.asm"
+
+.equ EXAMPLE_GAME_CONSTANT = 0
+
+.dseg
+
+example_game_state: .byte 1
+```
+
+### `game/setup.asm`
+
+Use this file to configure any SRAM, registers or hardware ahead of the game starting.  You will need to include the setup scripts of any [drivers](./engine/drivers/readme.md) you use.  `r31` should be safe to use here.
+
+```assembly
+.include "engine/drivers/tv-standards/ntsc/setup.asm"
+.include "engine/drivers/video/scanline/setup.asm"
+
+.cseg
+
+store_immediate example_game_state, r31, EXAMPLE_GAME_CONSTANT
+```
+
+### `game/start.asm`
+
+Use this file to perform final setup steps needed to start the game, such as enabling interrupts or hardware timers which were previously setup.  You will need to include the start scripts of any [drivers](./engine/drivers/readme.md) you use.  `r31` should be safe to use here.
+
+```assembly
+.include "engine/drivers/tv-standards/ntsc/start.asm"
+```
+
+### `game/frame.asm`
+
+This file is executed once per frame, by the main loop.  It is executed after `game/start.asm`, and before the first execution of `game/row.asm`.
+
+```assembly
+lds game_general_purpose_high_a, example_game_state
+inc game_general_purpose_high_a
+sts example_game_state, game_general_purpose_high_a
+```
+
+### `game/row.asm`
+
+This file is executed once per pixel row, by the main loop.  It should be used to communicate with the [video driver](./engine/drivers/video/readme.md).
+
+```assembly
+lds game_general_purpose_high_a, example_game_state
+cp game_general_purpose_high_a, video_next_row
+brsh game_row_palette_b
+
+video_scanline_flags_store_immediate game_general_purpose_high_a, 0
+rjmp game_row_configured_palette
+
+game_row_palette_b:
+video_scanline_flags_store_immediate game_general_purpose_high_a, (1 << VIDEO_SCANLINE_FLAG_PALETTE)
+
+game_row_configured_palette:
+
+video_scanline_buffer_load_z
+ldi game_general_purpose_high_a, 0b10101010
+st Z+, game_general_purpose_high_a
+```
+
+### `game/sample.asm`
+
+This file is executed by the TV standard driver once per audio sample.  `r30` and `r31` are safe to use.  Any other registers should be `push`ed before use and `pop`ped after use to prevent interfering with either the main loop or the TV standard driver.  Output the left channel to `OCR0B`, and the right channel to `OCR0A`.
+
+```assembly
+lds r31, example_game_state
+out OCR0B, r31
+out OCR0A, r31
+```
+
+### `game/video/before-columns.asm`
+
+This file is executed by the TV standard driver before the first pixel on a row is output.  `r30` and `r31` are safe to use.  Any other registers should be `push`ed before use to prevent interfering with either the main loop or the TV standard driver.  Clear the T flag to select palette A, and set the T flag to select palette B.  Note that `game/video/before-columns.asm`/`game/video/column.asm`/`game/video/after-columns.asm` may be executed more than once per row (but only in that order) if the TV standard driver needs to repeat the signal.  Usually this just involves handover to the [video driver](./engine/drivers/video/readme.md).
+
+```assembly
+.include "engine/drivers/video/scanline/before-columns.asm"
+```
+
+### `game/video/column.asm`
+
+This file is executed  Must take exactly 13 cycles, and store the next byte of four pixels in `UDR0`.  Usually this just involves handover to the [video driver](./engine/drivers/video/readme.md).
+
+```assembly
+.include "engine/drivers/video/scanline/column.asm"
+```
+
+### `game/video/before-columns.asm`
+
+This file is executed by the TV standard driver immediately after the last pixel on a row is output.  `pop` all registers here which were `pushed`.  Usually this just involves handover to the [video driver](./engine/drivers/video/readme.md).
+
+```assembly
+.include "engine/drivers/video/scanline/after-columns.asm"
 ```
 
 ## Globals and utilities
