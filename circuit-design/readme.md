@@ -62,7 +62,7 @@ This diode is included to prevent accidental high-voltage programming.  It can b
 
 ### Program
 
-J2 is all pins except VCC of a standard 1x6 ICSP header.  These have been ordered to match pins Arduino pins 10-13.
+J2 is all pins except VCC of a standard 2x3 ICSP header.  These have been arranged to match pins 10-13 of an Arduino used as a programmer.
 
 If using an [Arduino as an ISP](https://www.arduino.cc/en/Tutorial/BuiltInExamples/ArduinoISP), connect the following pins (where the Arduino has multiple pins labelled the same, any will work):
 
