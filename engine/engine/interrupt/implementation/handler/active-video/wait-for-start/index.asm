@@ -7,10 +7,9 @@
 ; - 3 cycles to start the serial port.
 ldi r28, ACTIVE_VIDEO_START_CYCLES - 1 - 5 - 2 - 2 - 3
 
-; Delay an extra cycle if the alternative palette is selected.
-brtc interrupt_active_video_wait_for_start_palette_a
-dec r28
-interrupt_active_video_wait_for_start_palette_a:
+.ifdef NTSC
+  .include "engine/interrupt/implementation/handler/active-video/wait-for-start/ntsc.asm"
+.endif
 
 lds r29, TCNT1L
 sub r28, r29
