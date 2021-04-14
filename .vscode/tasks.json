@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "deploy ntsc",
+      "type": "shell",
+      "command": "cd example && make deploy-ntsc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "deploy pal-60",
+      "type": "shell",
+      "command": "cd example && make deploy-pal-60",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

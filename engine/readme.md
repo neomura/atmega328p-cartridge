@@ -75,95 +75,22 @@ An example command line is as follows, assuming that the current working directo
 
 This expects a number of files to exist:
 
-### `game/declarations/index.asm`
+### [`game/declarations/index.asm`](../example/game/declarations/index.asm)
 
 Use this file to declare any constants, SRAM or register mappings which will be used in other files.  You will need to include the globals of any [drivers](./engine/drivers/readme.md) you use.
 
-```assembly
-.equ EXAMPLE_GAME_CONSTANT = 0
-
-example_game_state: .byte 1
-
-.undef game_general_purpose_high_a
-.def game_frame_counter = r19
-
-.undef game_general_purpose_high_b
-.def game_color = r20
-
-.undef game_general_purpose_high_c
-.def game_sample = r21
-```
-
-### `game/implementation/setup.asm`
+### [`game/implementation/setup.asm`](../example/game/implementation/setup.asm)
 
 Use this file to configure any SRAM or registers prior to the game starting.  `r31` should be safe to use here.
 
-```assembly
-ldi game_frame_counter, 0
-```
-
-### `game/implementation/frame.asm`
+### [`game/implementation/frame.asm`](../example/game/implementation/frame.asm)
 
 This file is executed once per frame, by the main loop.  It is executed before the first execution of `game/row.asm` during a frame.  This is the only time that pad state registers should be read from.
 
-```assembly
-; Increment the frame counter unless the first pad's right face button is held.
-sbrs pad_0, PADS_BUTTON_FACE_RIGHT
-inc game_frame_counter
-```
-
-### `game/implementation/row.asm`
+### [`game/implementation/row.asm`](../example/game/implementation/row.asm)
 
 This file is executed once per pixel row, by the main loop.  It should be used to communicate prepare the next line's framebuffer.
 
-```assembly
-; Switch palettes by comparing the position on the Y axis with the frame counter.
-
-cp game_frame_counter, video_next_row
-brsh game_row_palette_b
-
-set_palette_a_for_row
-rjmp game_row_configured_palette
-
-game_row_palette_b:
-set_palette_b_for_row
-
-game_row_configured_palette:
-
-load_framebuffer_z
-
-; Set the first four pixels to black.
-ldi game_color, 0b00000000
-st Z+, game_color
-
-; Set the next four pixels to avocado/aquamarine.
-ldi game_color, 0b01010101
-st Z+, game_color
-
-; Set the next four pixels to majorelle blue/crimson.
-ldi game_color, 0b10101010
-st Z+, game_color
-
-; Set the last four pixels to white.
-ldi game_color, 0b11111111
-st Z+, game_color
-
-; The rest of the display will be filled with random noise due to the SRAM being uninitialized.
-```
-
-### `game/implementation/sample.asm`
+### [`game/implementation/sample.asm`](../example/game/implementation/sample.asm)
 
 This file is executed by the interrupt once per audio sample, at approximately 15750Hz.  `r28`, `r29`, `r30` and `r31` can be freely clobbered; any other registers must be `push`ed before use and `pop`ped before exit if they are used anywhere else in the program.
-
-```assembly
-; Take the least significant bit of the frame counter to make a 30Hz square wave and shift it left to make it louder.
-mov game_sample, game_frame_counter
-andi game_sample, 0b00000001
-lsl game_sample
-lsl game_sample
-lsl game_sample
-lsl game_sample
-
-output_left_audio game_sample
-output_right_audio game_sample
-```

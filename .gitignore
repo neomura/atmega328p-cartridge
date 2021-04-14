@@ -1,3 +1,5 @@
 fp-*-*
 *.*-bak
 *-cache.lib
+*.hex
+*.obj

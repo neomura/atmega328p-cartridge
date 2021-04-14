@@ -15,6 +15,7 @@
     "**/.git": true,
     "**/fp-*-*": true,
     "**/*.*-bak": true,
-    "**/*-cache.lib": true
-  }
+    "**/*-cache.lib": true,
+    "**/*.hex": true,
+    "**/*.obj": true
 }
