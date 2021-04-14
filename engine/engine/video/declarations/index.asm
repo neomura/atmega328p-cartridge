@@ -1,0 +1,6 @@
+.include "engine/video/declarations/capabilities.asm"
+.include "engine/video/declarations/colors.asm"
+.include "engine/video/declarations/state.asm"
+.include "engine/video/declarations/framebuffer.asm"
+.include "engine/video/declarations/palette.asm"
+.include "engine/video/declarations/draw/pixel.asm"

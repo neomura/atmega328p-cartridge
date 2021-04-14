@@ -6,8 +6,6 @@
 .equ AUDIO_NOISE_MONO_REGISTER_BITS_LOW = 3
 .equ AUDIO_NOISE_MONO_REGISTER_BITS_HIGH = 4
 
-.cseg
-
 ; - A r* to clobber.
 ; - The SRAM address of the register.
 .macro audio_noise_mono_setup

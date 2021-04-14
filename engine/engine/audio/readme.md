@@ -1,5 +1,5 @@
 # [neomura/atmega328p-cartridge](../../../readme.md)/[Engine](../../readme.md)/Audio
-
+TODO
 These helper functions generate various waveforms which can be mixed to produce game audio.
 
 | Link                                         | Description                                                     |
@@ -15,9 +15,8 @@ Most will follow a pattern like the following, assuming that the oscillator is c
 
 ```assembly
 ; This is a block of bytes which will control the oscillator and allow it to track its state between samples.
-.dseg example_register: .byte AUDIO_EXAMPLE_REGISTER_BYTES
+example_register: .byte AUDIO_EXAMPLE_REGISTER_BYTES
 
-.cseg
 .macro game_setup
   audio_example_setup example_register, r16
 .endm

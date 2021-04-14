@@ -6,8 +6,6 @@
 .equ AUDIO_TRIANGLE_MONO_REGISTER_RATE_HIGH = 3
 .equ AUDIO_TRIANGLE_MONO_REGISTER_AMPLITUDE = 4
 
-.cseg
-
 ; - A r* to clobber.
 ; - The SRAM address of the register.
 .macro audio_triangle_mono_setup

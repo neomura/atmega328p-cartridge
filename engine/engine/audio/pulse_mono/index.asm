@@ -7,8 +7,6 @@
 .equ AUDIO_PULSE_MONO_REGISTER_AMPLITUDE = 4
 .equ AUDIO_PULSE_MONO_REGISTER_DUTY = 5
 
-.cseg
-
 ; - A r* to clobber.
 ; - The SRAM address of the register.
 .macro audio_pulse_mono_setup
