@@ -2,11 +2,16 @@
 ; Factored in:
 ; - 1 cycle to calculate the delay length.
 ; - 5 cycles of delay overhead.
-; - 2 cycles to apply the palette.
 ; - 2 cycles to load the first byte of pixels.
 ; - 2 cycles to load it into the serial port.
 ; - 3 cycles to start the serial port.
-ldi r28, ACTIVE_VIDEO_START_CYCLES - 1 - 5 - 2 - 2 - 2 - 3
+ldi r28, ACTIVE_VIDEO_START_CYCLES - 1 - 5 - 2 - 2 - 3
+
+; Delay an extra cycle if the alternative palette is selected.
+brtc interrupt_active_video_wait_for_start_palette_a
+dec r28
+interrupt_active_video_wait_for_start_palette_a:
+
 lds r29, TCNT1L
 sub r28, r29
 
