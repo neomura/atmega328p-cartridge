@@ -1,4 +1,5 @@
 ldi interrupt_state, INTERRUPT_STATE_POST_BLANK_START
+clr interrupt_flags
 
 ; Configure timer 1.
 ; - Set "compare match" mode - OC1A will be pulled high on reaching OCR1A, then pulled low on wrapping back to 0.
