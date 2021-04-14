@@ -13,8 +13,7 @@ store_immediate_16 ICR1L, r31, SCANLINE_CYCLES
 store_immediate_16 OCR1AL, r31, HSYNC_PULSE_CYCLES
 
 ; Use the second channel to trigger an interrupt which fires a little earlier than the end of a HSYNC pulse.
-; This figure has been set as high as possible without overwhelming the timing jitter correction through experimentation.
-store_immediate_16 OCR1BL, r31, 42
+store_immediate_16 OCR1BL, r31, INTERRUPT_START_CYCLES
 store_immediate TIMSK1, r31, 1<<OCIE1B
 
 ; Disable the SPI clock divider.

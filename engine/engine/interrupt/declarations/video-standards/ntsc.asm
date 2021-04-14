@@ -12,3 +12,7 @@
 
 ; Approximately 12.15usec, the point during a line at which active video starts, plus a safe area border.
 .equ ACTIVE_VIDEO_START_CYCLES = 176
+
+; The point during a line at which the interrupt should fire.
+; This figure has been set as high as possible without overwhelming the timing jitter correction through experimentation.
+.equ INTERRUPT_START_CYCLES = 42
