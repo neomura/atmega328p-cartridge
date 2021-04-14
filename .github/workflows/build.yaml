@@ -9,7 +9,7 @@ jobs:
         submodules: true
     - uses: neomura/setup-avra-cli-action@v1.0.1
     - run: make
-      working-directory: examples
+      working-directory: example
     - uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
