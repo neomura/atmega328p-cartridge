@@ -9,6 +9,8 @@ ldi r28, ACTIVE_VIDEO_START_CYCLES - 1 - 5 - 2 - 2 - 3
 
 .ifdef NTSC
   .include "engine/interrupt/implementation/handler/active-video/wait-for-start/ntsc.asm"
+.else
+  .include "engine/interrupt/implementation/handler/active-video/wait-for-start/pal-60.asm"
 .endif
 
 lds r29, TCNT1L

@@ -116,6 +116,11 @@
 
   .include "game/implementation/sample.asm"
 
+  .ifdef PAL_60
+    ldi r31, 1 << INTERRUPT_FLAG_ALTERNATE_LINE
+    eor interrupt_flags, r31
+  .endif
+
   ; Restore clobbered registers from the stack.
   pop r31
   out SREG, r31
