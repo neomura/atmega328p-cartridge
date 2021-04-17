@@ -2,7 +2,7 @@
 
 .dseg
 
-.include "engine/utilities/index.asm"
+.include "engine/utilities/declarations/index.asm"
 .include "engine/audio/declarations/index.asm"
 .include "engine/video/declarations/index.asm"
 .include "engine/interrupt/declarations/index.asm"
