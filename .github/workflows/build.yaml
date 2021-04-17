@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: true
-    - uses: neomura/setup-avra-cli-action@v1.0.1
+    - uses: neomura/setup-avra-cli-action@v1.0.2
     - run: make
       working-directory: example
     - uses: softprops/action-gh-release@v1
