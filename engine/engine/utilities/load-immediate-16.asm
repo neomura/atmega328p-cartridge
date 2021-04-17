@@ -1,4 +1,4 @@
-; Load a two-byte word into a register pair in 4 cycles.
+; Load a two-byte word into a register pair in 2 cycles.
 ; - The r* to load the low byte into.
 ; - The r* to load the high byte into.
 ; - The value to load.
