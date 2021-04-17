@@ -1,29 +1,29 @@
-; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_a = r7
+; A register which always contains zero.
+.def zero = r7
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_b = r8
+.def game_general_purpose_low_a = r8
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_c = r9
+.def game_general_purpose_low_b = r9
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_d = r10
+.def game_general_purpose_low_c = r10
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_e = r11
+.def game_general_purpose_low_d = r11
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_f = r12
+.def game_general_purpose_low_e = r12
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_g = r13
+.def game_general_purpose_low_f = r13
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_h = r14
+.def game_general_purpose_low_g = r14
 
 ; A register in the range r0 ... r15 which can be freely used by games and is not bound to an instruction.
-.def game_general_purpose_low_i = r15
+.def game_general_purpose_low_h = r15
 
 ; A register in the range r16 ... r31 which can be freely used by games and is not bound to an instruction.
 .def game_general_purpose_high_a = r19

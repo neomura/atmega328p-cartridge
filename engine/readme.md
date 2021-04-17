@@ -32,15 +32,15 @@ The resulting mapping is as follows:
 | `r4`     | `pad_2`                        | State of pad 2 (set bits indicate held buttons, ordered face right, face left, select, start, up, down, left, right; all cleared when pad disconnected). |
 | `r5`     | `pad_3`                        | State of pad 3 (set bits indicate held buttons, ordered face right, face left, select, start, up, down, left, right; all cleared when pad disconnected). |
 | `r6`     | `main_loop_previous_video_row` | Used by the main loop for state tracking.                                                                                                                |
-| `r7`     | `game_general_purpose_low_a`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r8`     | `game_general_purpose_low_b`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r9`     | `game_general_purpose_low_c`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r10`    | `game_general_purpose_low_d`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r11`    | `game_general_purpose_low_e`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r12`    | `game_general_purpose_low_f`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r13`    | `game_general_purpose_low_g`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r14`    | `game_general_purpose_low_h`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
-| `r15`    | `game_general_purpose_low_i`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r7`     | `zero`                         | Always contains zero.                                                                                                                                    |
+| `r8`     | `game_general_purpose_low_a`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r9`     | `game_general_purpose_low_b`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r10`    | `game_general_purpose_low_c`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r11`    | `game_general_purpose_low_d`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r12`    | `game_general_purpose_low_e`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r13`    | `game_general_purpose_low_f`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r14`    | `game_general_purpose_low_g`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
+| `r15`    | `game_general_purpose_low_h`   | Available for general purpose usage, though note that many instructions cannot be used with it directly.                                                 |
 | `r16`    | `video_next_row`               | The row which the interrupt will be outputting next.  Will remain 0 for longer than other values, in which `game_tick` is executed by the main loop.     |
 | `r17`    | `interrupt_state`              | Used by the interrupt to track progress through the current frame.                                                                                       |
 | `r18`    | `interrupt_flags`              | Flags used internally by by the interrupt.                                                                                                               |

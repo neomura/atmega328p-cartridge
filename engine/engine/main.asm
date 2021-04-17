@@ -18,6 +18,7 @@
 .include "engine/interrupt/implementation/handler/index.asm"
 
 main:
+  .include "engine/utilities/implementation/setup.asm"
   .include "engine/audio/implementation/setup.asm"
   .include "engine/video/implementation/setup.asm"
   .include "engine/pads/implementation/setup.asm"
